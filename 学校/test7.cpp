@@ -1,7 +1,13 @@
 #include <iostream>
 using namespace std;
-inline int sum(int a, int b) { return a + b; }
-inline double sum(double a, double b, double c) { return a + b + c; }
+inline int sum(int a, int b) 
+{ 
+    return a + b;
+}
+inline double sum(double a, double b, double c) 
+{
+    return a + b + c;
+}
 int main()
 {
     int x, y, ans;
