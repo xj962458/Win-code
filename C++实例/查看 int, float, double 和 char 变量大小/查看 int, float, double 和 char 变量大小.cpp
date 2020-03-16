@@ -3,10 +3,10 @@ using namespace std;
  
 int main() 
 {    
-    cout << "char: " << sizeof(char) << " ×Ö½Ú" << endl;
-    cout << "int: " << sizeof(int) << " ×Ö½Ú" << endl;
-    cout << "float: " << sizeof(float) << " ×Ö½Ú" << endl;
-    cout << "double: " << sizeof(double) << " ×Ö½Ú" << endl;
+    cout << "char: " << sizeof(char) << " å­—èŠ‚" << endl;
+    cout << "int: " << sizeof(int) << " å­—èŠ‚" << endl;
+    cout << "float: " << sizeof(float) << " å­—èŠ‚" << endl;
+    cout << "double: " << sizeof(double) << " å­—èŠ‚" << endl;
  
     return 0;
 }

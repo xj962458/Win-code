@@ -5,7 +5,7 @@ int main()
 {
     int rows,i,j,space;
  
-    cout << "ÊäÈëÐÐÊý: ";
+    cout << "è¾“å…¥è¡Œæ•°: ";
     cin >> rows;
  
     for(i = rows; i >= 1; --i)

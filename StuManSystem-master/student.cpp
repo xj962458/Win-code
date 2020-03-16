@@ -26,47 +26,47 @@ Student::~Student()
 	}
 }
 
-//×¢²áº¯Êı
+//æ³¨å†Œå‡½æ•°
 void Student::logon()
 {
 	student tmp;
-	cout << "Ñ§ºÅ(0½áÊøÊäÈë)£º";
+	cout << "å­¦å·(0ç»“æŸè¾“å…¥)ï¼š";
 	cin >> tmp.stu_id;
 
 	while (tmp.stu_id)
 	{
 		if (findById(tmp.stu_id) == nullptr)
 		{
-			cout << "ĞÕÃû£º";
+			cout << "å§“åï¼š";
 			cin >> tmp.stu_name;
-			cout << "ÄêÁä£º";
+			cout << "å¹´é¾„ï¼š";
 			cin >> tmp.stu_age;
-			cout << "ĞÔ±ğ£º";
+			cout << "æ€§åˆ«ï¼š";
 			cin >> tmp.stu_sex;
-			cout << "¼®¹á£º";
+			cout << "ç±è´¯ï¼š";
 			cin >> tmp.stu_birth;
-			cout << "Ïµ±ğ£º";
+			cout << "ç³»åˆ«ï¼š";
 			cin >> tmp.stu_department;
-			cout << "×¨Òµ£º";
+			cout << "ä¸“ä¸šï¼š";
 			cin >> tmp.stu_major;
-			cout << "°à¼¶£º";
+			cout << "ç­çº§ï¼š";
 			cin >> tmp.stu_class;
-			cout << "µç»°£º";
+			cout << "ç”µè¯ï¼š";
 			cin >> tmp.stu_tel;
-			cout << "µç×ÓÓÊÏä£º";
+			cout << "ç”µå­é‚®ç®±ï¼š";
 			cin >> tmp.stu_email;
 			insert(tmp);
 		}
 		else
 		{
-			cout << "ÖØ¸´µÄÑ§ºÅ£º" << tmp.stu_id << endl;
+			cout << "é‡å¤çš„å­¦å·ï¼š" << tmp.stu_id << endl;
 		}
-		cout << "Ñ§ºÅ(0½áÊøÊäÈë)£º";
+		cout << "å­¦å·(0ç»“æŸè¾“å…¥)ï¼š";
 		cin >> tmp.stu_id;
 	}
 }
 
-//²éÕÒº¯Êı
+//æŸ¥æ‰¾å‡½æ•°
 void Student::Query() const
 {
 	int select;
@@ -75,12 +75,12 @@ void Student::Query() const
 	string sex;
 	string email;
 	student *p;
-	cout << "1.°´Ñ§ºÅ²éÑ¯\n2.°´ĞÕÃû²éÑ¯\n3.°´ĞÔ±ğ²éÑ¯\n4.°´email²éÑ¯\n0.·µ»Ø\n";
+	cout << "1.æŒ‰å­¦å·æŸ¥è¯¢\n2.æŒ‰å§“åæŸ¥è¯¢\n3.æŒ‰æ€§åˆ«æŸ¥è¯¢\n4.æŒ‰emailæŸ¥è¯¢\n0.è¿”å›\n";
 	cin >> select;
 	switch (select)
 	{
 	case 1:
-		cout << "ÇëÊäÈëÒª²éÕÒµÄÑ§ºÅ£º";
+		cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„å­¦å·ï¼š";
 		cin >> id;
 		if ((p = findById(id)))
 		{
@@ -88,7 +88,7 @@ void Student::Query() const
 		}
 		break;
 	case 2:
-		cout << "ÇëÊäÈëÒª²éÕÒµÄĞÕÃû£º";
+		cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„å§“åï¼š";
 		cin >> name;
 		if ((p = findByName(name)))
 		{
@@ -96,7 +96,7 @@ void Student::Query() const
 		}
 		break;
 	case 3:
-		cout << "ÇëÊäÈëÒª²éÕÒµÄĞÔ±ğ£º";
+		cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„æ€§åˆ«ï¼š";
 		cin >> sex;
 		if ((p = findBySex(sex)))
 		{
@@ -104,7 +104,7 @@ void Student::Query() const
 		}
 		break;
 	case 4:
-		cout << "ÇëÊäÈëÒª²éÕÒµÄemail£º";
+		cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„emailï¼š";
 		cin >> email;
 		if ((p = findByEmail(email)))
 		{
@@ -114,7 +114,7 @@ void Student::Query() const
 	case 0:
 		return;
 	default:
-		cout << "²éÕÒÊ§°Ü£¬ÇëÖØĞÂÑ¡Ôñ²éÕÒµÄ·½Ê½£¡" << endl;
+		cout << "æŸ¥æ‰¾å¤±è´¥ï¼Œè¯·é‡æ–°é€‰æ‹©æŸ¥æ‰¾çš„æ–¹å¼ï¼" << endl;
 	}
 }
 
@@ -128,7 +128,7 @@ student *Student::findByEmail(const string &email) const
 			return p;
 		}
 	}
-	cout << "Ã»ÓĞÕÒµ½ÊäÈëµÄemail!" << endl;
+	cout << "æ²¡æœ‰æ‰¾åˆ°è¾“å…¥çš„email!" << endl;
 	return nullptr;
 }
 
@@ -142,7 +142,7 @@ student *Student::findBySex(const string &sex) const
 			return p;
 		}
 	}
-	cout << "Ã»ÓĞÕÒµ½ÊäÈëµÄĞÔ±ğµÄÓÃ»§£¡" << endl;
+	cout << "æ²¡æœ‰æ‰¾åˆ°è¾“å…¥çš„æ€§åˆ«çš„ç”¨æˆ·ï¼" << endl;
 	return nullptr;
 }
 
@@ -156,7 +156,7 @@ student *Student::findByName(const string &name) const
 			return p;
 		}
 	}
-	cout << "Ã»ÓĞÕÒµ½ÊäÈëµÄĞÕÃû£¡" << endl;
+	cout << "æ²¡æœ‰æ‰¾åˆ°è¾“å…¥çš„å§“åï¼" << endl;
 	return nullptr;
 }
 
@@ -170,34 +170,34 @@ student *Student::findById(unsigned id) const
 			return p;
 		}
 	}
-	cout << "Ã»ÓĞÕÒµ½ÊäÈëµÄID£¡" << endl;
+	cout << "æ²¡æœ‰æ‰¾åˆ°è¾“å…¥çš„IDï¼" << endl;
 	return nullptr;
 }
 
-//É¾³ıº¯Êı
+//åˆ é™¤å‡½æ•°
 void Student::deleteBy()
 {
 	int select;
 	unsigned id;
 	string name;
-	cout << "1.°´Ñ§ºÅÉ¾³ı\n2.°´ĞÕÃûÉ¾³ı\n0.·µ»Ø\n";
+	cout << "1.æŒ‰å­¦å·åˆ é™¤\n2.æŒ‰å§“ååˆ é™¤\n0.è¿”å›\n";
 	cin >> select;
 	switch (select)
 	{
 	case 1:
-		cout << "ÇëÊäÈëÄúÒªÉ¾³ıµÄÑ§ºÅ£º";
+		cout << "è¯·è¾“å…¥æ‚¨è¦åˆ é™¤çš„å­¦å·ï¼š";
 		cin >> id;
 		deleteById(id);
 		break;
 	case 2:
-		cout << "ÇëÊäÈëÓëÄúÒªÉ¾³ıµÄĞÕÃû£º";
+		cout << "è¯·è¾“å…¥ä¸æ‚¨è¦åˆ é™¤çš„å§“åï¼š";
 		cin >> name;
 		deleteByName(name);
 		break;
 	case 0:
 		return;
 	default:
-		cout << "É¾³ıÊ§°Ü£¬ÇëÖØĞÂÑ¡ÔñÉ¾³ıµÄ·½Ê½£¡" << endl;
+		cout << "åˆ é™¤å¤±è´¥ï¼Œè¯·é‡æ–°é€‰æ‹©åˆ é™¤çš„æ–¹å¼ï¼" << endl;
 	}
 }
 
@@ -208,13 +208,13 @@ bool Student::deleteById(unsigned &id)
 	p = findById(id);
 	if (p == nullptr)
 	{
-		cout << "Ã»ÓĞÕÒµ½Ñ§ºÅÊÇ£º\"" << id << "\"µÄÑ§Éú£¬É¾³ıÊ§°Ü£¡" << endl;
+		cout << "æ²¡æœ‰æ‰¾åˆ°å­¦å·æ˜¯ï¼š\"" << id << "\"çš„å­¦ç”Ÿï¼Œåˆ é™¤å¤±è´¥ï¼" << endl;
 		return false;
 	}
 	q = p->stu_next;
 	p->stu_next = q->stu_next;
 	delete q;
-	cout << "³É¹¦É¾³ıÑ§ºÅÎª£º\"" << id << "\"µÄÑ§ÉúµÄĞÅÏ¢" << endl;
+	cout << "æˆåŠŸåˆ é™¤å­¦å·ä¸ºï¼š\"" << id << "\"çš„å­¦ç”Ÿçš„ä¿¡æ¯" << endl;
 	return true;
 }
 
@@ -225,40 +225,40 @@ bool Student::deleteByName(string &name)
 	p = findByName(name);
 	if (p == nullptr)
 	{
-		cout << "Ã»ÓĞÕÒµ½ĞÕÃûÎª£º\"" << name << "\"µÄÑ§Éú£¬É¾³ıÊ§°Ü£¡" << endl;
+		cout << "æ²¡æœ‰æ‰¾åˆ°å§“åä¸ºï¼š\"" << name << "\"çš„å­¦ç”Ÿï¼Œåˆ é™¤å¤±è´¥ï¼" << endl;
 		return false;
 	}
 	q = p->stu_next;
 	p->stu_next = q->stu_next;
 	delete q;
-	cout << "³É¹¦É¾³ıĞÕÃûÎª£º\"" << name << "\"µÄĞÅÏ¢\n";
+	cout << "æˆåŠŸåˆ é™¤å§“åä¸ºï¼š\"" << name << "\"çš„ä¿¡æ¯\n";
 	return true;
 }
 
-//ĞŞ¸Äº¯Êı
+//ä¿®æ”¹å‡½æ•°
 void Student::modify()
 {
 	int select;
-	cout << "1.°´Ñ§ºÅĞŞ¸Ä\n2.°´ĞÕÃûĞŞ¸Ä\n0.·µ»Ø\n";
+	cout << "1.æŒ‰å­¦å·ä¿®æ”¹\n2.æŒ‰å§“åä¿®æ”¹\n0.è¿”å›\n";
 	cin >> select;
 	switch (select)
 	{
 	case 1:
 		if (modifyById())
 		{
-			cout << "ĞŞ¸Ä³É¹¦£¡\n";
+			cout << "ä¿®æ”¹æˆåŠŸï¼\n";
 		}
 		break;
 	case 2:
 		if (modifyByName())
 		{
-			cout << "ĞŞ¸Ä³É¹¦£¡\n";
+			cout << "ä¿®æ”¹æˆåŠŸï¼\n";
 		}
 		break;
 	case 0:
 		return;
 	default:
-		cout << "ĞŞ¸ÄÊ§°Ü£¬ÇëÖØĞÂÑ¡ÔñĞŞ¸ÄµÄ·½Ê½£¡" << endl;
+		cout << "ä¿®æ”¹å¤±è´¥ï¼Œè¯·é‡æ–°é€‰æ‹©ä¿®æ”¹çš„æ–¹å¼ï¼" << endl;
 		break;
 	}
 }
@@ -267,12 +267,12 @@ bool Student::modifyById()
 {
 	student *p = nullptr;
 	unsigned id;
-	cout << "ÇëÊäÈëÒªĞŞ¸ÄµÄÑ§ºÅ£º" << endl;
+	cout << "è¯·è¾“å…¥è¦ä¿®æ”¹çš„å­¦å·ï¼š" << endl;
 	cin >> id;
 	p = findById(id);
 	if (p == nullptr)
 	{
-		cout << "Ã»ÓĞÕÒµ½Ñ§ºÅÊÇ£º\"" << id << "\"µÄÑ§Éú£¬ĞŞ¸ÄÊ§°Ü£¡\n";
+		cout << "æ²¡æœ‰æ‰¾åˆ°å­¦å·æ˜¯ï¼š\"" << id << "\"çš„å­¦ç”Ÿï¼Œä¿®æ”¹å¤±è´¥ï¼\n";
 		return false;
 	}
 	createByStdin(1, *(p->stu_next));
@@ -283,12 +283,12 @@ bool Student::modifyByName()
 {
 	student *p;
 	string name;
-	cout << "ÇëÊäÈëÄúÒªĞŞ¸ÄµÄĞÕÃû£º";
+	cout << "è¯·è¾“å…¥æ‚¨è¦ä¿®æ”¹çš„å§“åï¼š";
 	cin >> name;
 	p = findByName(name);
 	if (p == nullptr)
 	{
-		cout << "Ã»ÓĞÕÒµ½ĞÕÃûÎª£º\"" << name << "\"µÄÑ§Éú£¬ĞŞ¸ÄÊ§°Ü£¡\n";
+		cout << "æ²¡æœ‰æ‰¾åˆ°å§“åä¸ºï¼š\"" << name << "\"çš„å­¦ç”Ÿï¼Œä¿®æ”¹å¤±è´¥ï¼\n";
 		return false;
 	}
 	createByStdin(2, *(p->stu_next));
@@ -299,44 +299,44 @@ student *Student::createByStdin(int model, student &tmp)
 {
 	if (model == 1)
 	{
-		cout << "Ñ§ºÅ£º";
+		cout << "å­¦å·ï¼š";
 		cin >> tmp.stu_id;
 	}
 	if (model == 2)
 	{
-		cout << "ĞÕÃû£º";
+		cout << "å§“åï¼š";
 		cin >> tmp.stu_name;
 	}
-	cout << "ÄêÁä£º";
+	cout << "å¹´é¾„ï¼š";
 	cin >> tmp.stu_age;
-	cout << "ĞÔ±ğ£º";
+	cout << "æ€§åˆ«ï¼š";
 	cin >> tmp.stu_sex;
-	cout << "¼®¹á£º";
+	cout << "ç±è´¯ï¼š";
 	cin >> tmp.stu_birth;
-	cout << "Ïµ±ğ£º";
+	cout << "ç³»åˆ«ï¼š";
 	cin >> tmp.stu_department;
-	cout << "×¨Òµ£º";
+	cout << "ä¸“ä¸šï¼š";
 	cin >> tmp.stu_major;
-	cout << "°à¼¶£º";
+	cout << "ç­çº§ï¼š";
 	cin >> tmp.stu_class;
-	cout << "ÊÖ»ú£º";
+	cout << "æ‰‹æœºï¼š";
 	cin >> tmp.stu_tel;
-	cout << "µç×ÓÓÊÏä£º";
+	cout << "ç”µå­é‚®ç®±ï¼š";
 	cin >> tmp.stu_email;
 	return &tmp;
 }
 
-//ÎÄ¼ş²Ù×÷º¯Êı
+//æ–‡ä»¶æ“ä½œå‡½æ•°
 void Student::saveToFile()
 {
 	string new_file;
-	cout << "ÇëÊäÈëÒª±£´æµÄÎÄ¼şÃû£º";
+	cout << "è¯·è¾“å…¥è¦ä¿å­˜çš„æ–‡ä»¶åï¼š";
 	cin >> new_file;
 	fstream file;
 	file.open(new_file.c_str(), ios::out);
 	if (file.bad())
 	{
-		cout << "ÎÄ¼ş´ò¿ªÊ§°Ü£¡" << endl;
+		cout << "æ–‡ä»¶æ‰“å¼€å¤±è´¥ï¼" << endl;
 		return;
 	}
 	int len = headCount();
@@ -357,7 +357,7 @@ void Student::saveToFile()
 		pHead = pHead->stu_next;
 	}
 	file.close();
-	cout << "±£´æ³É¹¦£¡" << endl;
+	cout << "ä¿å­˜æˆåŠŸï¼" << endl;
 	filename = new_file;
 	return;
 }
@@ -365,20 +365,20 @@ void Student::saveToFile()
 void Student::readFile()
 {
 	string new_file;
-	cout << "ÇëÊäÈëÒª¶ÁÈ¡µÄÎÄ¼şÃû£º";
+	cout << "è¯·è¾“å…¥è¦è¯»å–çš„æ–‡ä»¶åï¼š";
 	cin >> new_file;
 	fstream file;
 	file.open(new_file.c_str(), ios::in);
 	if (file.bad())
 	{
-		cout << "ÎÄ¼ş´ò¿ªÊ§°Ü£¡" << endl;
+		cout << "æ–‡ä»¶æ‰“å¼€å¤±è´¥ï¼" << endl;
 		return;
 	}
 	int len = 0;
 	file >> len;
 	while (!len)
 	{
-		cout << "ÎÄ¼şÊı¾İÒì³££¡" << endl;
+		cout << "æ–‡ä»¶æ•°æ®å¼‚å¸¸ï¼" << endl;
 		return;
 	}
 	student pHead;
@@ -398,7 +398,7 @@ void Student::readFile()
 		insert(pHead);
 	}
 	file.close();
-	cout << "ÎÄ¼ş¶ÁÈë³É¹¦£¡" << endl;
+	cout << "æ–‡ä»¶è¯»å…¥æˆåŠŸï¼" << endl;
 	filename = new_file;
 	return;
 }
@@ -407,22 +407,22 @@ bool Student::insert(const student &astu)
 {
 	student *newnode = nullptr;
 	student *p = head;
-	if (p->stu_next == nullptr) //µ±Ã»ÓĞÏÂÒ»¸ö¶Ñ£¬ÕâĞÂ½¨Ò»¸ö¶ÑÀ´´æ´¢Êı¾İ
+	if (p->stu_next == nullptr) //å½“æ²¡æœ‰ä¸‹ä¸€ä¸ªå †ï¼Œè¿™æ–°å»ºä¸€ä¸ªå †æ¥å­˜å‚¨æ•°æ®
 	{
-		p->stu_next = new student(astu); //ÓÃ´«ÈëµÄÒÑĞŞ¸Ä½á¹¹³õÊ¼»¯
-		p->stu_next->stu_next = nullptr; //nullptr´¦ÀíÔÙÏÂÒ»¸ö¶Ñ
+		p->stu_next = new student(astu); //ç”¨ä¼ å…¥çš„å·²ä¿®æ”¹ç»“æ„åˆå§‹åŒ–
+		p->stu_next->stu_next = nullptr; //nullptrå¤„ç†å†ä¸‹ä¸€ä¸ªå †
 		return true;
 	}
-	while (p->stu_next) //µ±´æÔÚÏÂÒ»¸ö¶Ñ
+	while (p->stu_next) //å½“å­˜åœ¨ä¸‹ä¸€ä¸ªå †
 	{
-		if (p->stu_next->stu_id == astu.stu_id) //ÅĞÖØ
+		if (p->stu_next->stu_id == astu.stu_id) //åˆ¤é‡
 		{
-			cout << "Ñ§ºÅÖØ¸´£¬²åÈëÊ§°Ü£¡" << endl;
+			cout << "å­¦å·é‡å¤ï¼Œæ’å…¥å¤±è´¥ï¼" << endl;
 			return false;
 		}
-		if (p->stu_next->stu_id > astu.stu_id) //Èç¹ûÏÂÒ»¸ö¶ÑµÄid´óÓÚ´«ÈëµÄid
+		if (p->stu_next->stu_id > astu.stu_id) //å¦‚æœä¸‹ä¸€ä¸ªå †çš„idå¤§äºä¼ å…¥çš„id
 		{
-			newnode = new student(astu); //newnodeÖ¸Ïò³õÊ¼ĞŞ¸Ä½á¹¹
+			newnode = new student(astu); //newnodeæŒ‡å‘åˆå§‹ä¿®æ”¹ç»“æ„
 			newnode->stu_next = p->stu_next;
 			p->stu_next = newnode;
 			return true;
@@ -434,7 +434,7 @@ bool Student::insert(const student &astu)
 	return true;
 }
 
-//ÏÔÊ¾º¯Êı
+//æ˜¾ç¤ºå‡½æ•°
 void Student::Show() const
 {
 	student *p = nullptr;
@@ -448,12 +448,12 @@ void Student::Show() const
 
 void show(student *p)
 {
-	cout << "  Ñ§ºÅ£º" << p->stu_id << "  ĞÕÃû£º " << p->stu_name << "  ÄêÁä£º " << p->stu_age << "  ĞÔ±ğ£º ";
-	cout << p->stu_sex << "  ¼®¹á£º " << p->stu_birth << "  Ïµ±ğ£º " << p->stu_department << endl;
-	cout << "  ×¨Òµ£º " << p->stu_major << "  °à¼¶£º " << p->stu_class << "  ÊÖ»ú£º " << p->stu_tel << "  Email£º " << p->stu_email << endl;
+	cout << "  å­¦å·ï¼š" << p->stu_id << "  å§“åï¼š " << p->stu_name << "  å¹´é¾„ï¼š " << p->stu_age << "  æ€§åˆ«ï¼š ";
+	cout << p->stu_sex << "  ç±è´¯ï¼š " << p->stu_birth << "  ç³»åˆ«ï¼š " << p->stu_department << endl;
+	cout << "  ä¸“ä¸šï¼š " << p->stu_major << "  ç­çº§ï¼š " << p->stu_class << "  æ‰‹æœºï¼š " << p->stu_tel << "  Emailï¼š " << p->stu_email << endl;
 }
 
-//½á¹¹ÊıÁ¿¼ÆËãº¯Êı
+//ç»“æ„æ•°é‡è®¡ç®—å‡½æ•°
 unsigned Student::headCount() const
 {
 	unsigned cnt = 0;

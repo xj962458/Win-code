@@ -4,24 +4,24 @@
 #include"2.h"
 using namespace std;
 int main(){
-	int amount, order;  //amountÎª¿¼ÉúÈËÊı orderÎªÑ¡ÔñµÄÃüÁî
-	linkedList STUlist;  //STUlistÎª¿¼ÉúÁ´±í
+	int amount, order;  //amountä¸ºè€ƒç”Ÿäººæ•° orderä¸ºé€‰æ‹©çš„å‘½ä»¤
+	linkedList STUlist;  //STUlistä¸ºè€ƒç”Ÿé“¾è¡¨
 	STU testStudent = { 0, "", "", 0, "", NULL, NULL };
-	cout << "Ê×ÏÈÇë½¨Á¢¿¼ÉúĞÅÏ¢ÏµÍ³£¡" << endl << "ÇëÊäÈë¿¼ÉúÈËÊı£º";
+	cout << "é¦–å…ˆè¯·å»ºç«‹è€ƒç”Ÿä¿¡æ¯ç³»ç»Ÿï¼" << endl << "è¯·è¾“å…¥è€ƒç”Ÿäººæ•°ï¼š";
 	cin >> amount;
 	while (amount < 1){
-		cout << "¿¼ÉúÈËÊı±ØĞë´óÓÚ1£¬ÇëÖØĞÂÊäÈë£º";
+		cout << "è€ƒç”Ÿäººæ•°å¿…é¡»å¤§äº1ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š";
 		cin >> amount;
 	}
-	cout << "ÇëÒÀ´ÎÊäÈë¿¼ÉúµÄ¿¼ºÅ¡¢ĞÕÃû¡¢ĞÔ±ğ¡¢ÄêÁä¼°±¨¿¼Àà±ğ£¡" << endl;
-	for (int iX = 0; iX < amount; iX++){  //»ñµÃ¿¼ÉúµÄĞÅÏ¢
+	cout << "è¯·ä¾æ¬¡è¾“å…¥è€ƒç”Ÿçš„è€ƒå·ã€å§“åã€æ€§åˆ«ã€å¹´é¾„åŠæŠ¥è€ƒç±»åˆ«ï¼" << endl;
+	for (int iX = 0; iX < amount; iX++){  //è·å¾—è€ƒç”Ÿçš„ä¿¡æ¯
 		cin >> testStudent.stuTestNum >> testStudent.stuName >> testStudent.stuSex >> testStudent.stuAge >> testStudent.stuCategory;
 		STUlist.addStu(testStudent);
 	}
 	cout << endl;
-	STUlist.showStu();    //Õ¹Ê¾¿¼ÉúĞÅÏ¢ºóÑ¡Ôñ²Ù×÷
-	cout << "ÇëÑ¡ÔñÄúÒª½øĞĞµÄ²Ù×÷£º£¨1Îª²åÈë£¬2ÎªÉ¾³ı£¬3Îª²éÕÒ£¬4ÎªĞŞ¸Ä£¬5ÎªÍ³¼Æ£¬0ÎªÈ¡Ïû²Ù×÷£©" << endl;
-	cout << endl << "ÇëÑ¡ÔñÄúÒª½øĞĞµÄ²Ù×÷:";
+	STUlist.showStu();    //å±•ç¤ºè€ƒç”Ÿä¿¡æ¯åé€‰æ‹©æ“ä½œ
+	cout << "è¯·é€‰æ‹©æ‚¨è¦è¿›è¡Œçš„æ“ä½œï¼šï¼ˆ1ä¸ºæ’å…¥ï¼Œ2ä¸ºåˆ é™¤ï¼Œ3ä¸ºæŸ¥æ‰¾ï¼Œ4ä¸ºä¿®æ”¹ï¼Œ5ä¸ºç»Ÿè®¡ï¼Œ0ä¸ºå–æ¶ˆæ“ä½œï¼‰" << endl;
+	cout << endl << "è¯·é€‰æ‹©æ‚¨è¦è¿›è¡Œçš„æ“ä½œ:";
 	cin >> order;
 	while (order != 0){
 		switch (order)
@@ -45,8 +45,8 @@ int main(){
 			break;
 		}
 		cout << endl;
-		STUlist.showStu();    //Ã¿´Î²Ù×÷ÍêºóÕ¹Ê¾²Ù×÷ºóµÄ¿¼ÉúĞÅÏ¢
-		cout << "ÇëÑ¡ÔñÄúÒª½øĞĞµÄ²Ù×÷£º";
+		STUlist.showStu();    //æ¯æ¬¡æ“ä½œå®Œåå±•ç¤ºæ“ä½œåçš„è€ƒç”Ÿä¿¡æ¯
+		cout << "è¯·é€‰æ‹©æ‚¨è¦è¿›è¡Œçš„æ“ä½œï¼š";
 		cin >> order;
 	}
 }

@@ -5,30 +5,30 @@
 using namespace std;
 struct STU
 {
-	int stuTestNum;		    //¿¼ºÅ
-	string stuName; 		//ĞÕÃû
-	string stuSex;          //ĞÔ±ğ
-	int stuAge;             //ÄêÁä
-	string stuCategory;     //±¨¿¼Àà±ğ
+	int stuTestNum;		    //è€ƒå·
+	string stuName; 		//å§“å
+	string stuSex;          //æ€§åˆ«
+	int stuAge;             //å¹´é¾„
+	string stuCategory;     //æŠ¥è€ƒç±»åˆ«
 
-	STU *pre;               //Ç°Ö¸Õë
-	STU *next;              //ºóÖ¸Õë
+	STU *pre;               //å‰æŒ‡é’ˆ
+	STU *next;              //åæŒ‡é’ˆ
 };
 
 class linkedList{
 private:
-	int stuNum;             //¿¼ÉúÈËÊı
+	int stuNum;             //è€ƒç”Ÿäººæ•°
 public:
 	linkedList();
 	~linkedList();
 
-	void addStu(STU &item);									   	 //Ìí¼Ó¿¼ÉúĞÅÏ¢
-	void deleteStu();											 //É¾³ı¿¼ÉúĞÅÏ¢
-	void insertStu();											 //²åÈë¿¼ÉúĞÅÏ¢
-	void editStu();												 //ĞŞ¸Ä¿¼ÉúĞÅÏ¢
-	void staStu();												 //Í³¼Æ¿¼ÉúĞÅÏ¢
-	void copyStu(STU *student1, STU &student2);                  //¸´ÖÆ¿¼ÉúĞÅÏ¢
-	void showStu();												 //Õ¹Ê¾ËùÓĞ¿¼ÉúĞÅÏ¢
-	STU *findStu(int item);										 //²éÕÒ¿¼ÉúĞÅÏ¢
+	void addStu(STU &item);									   	 //æ·»åŠ è€ƒç”Ÿä¿¡æ¯
+	void deleteStu();											 //åˆ é™¤è€ƒç”Ÿä¿¡æ¯
+	void insertStu();											 //æ’å…¥è€ƒç”Ÿä¿¡æ¯
+	void editStu();												 //ä¿®æ”¹è€ƒç”Ÿä¿¡æ¯
+	void staStu();												 //ç»Ÿè®¡è€ƒç”Ÿä¿¡æ¯
+	void copyStu(STU *student1, STU &student2);                  //å¤åˆ¶è€ƒç”Ÿä¿¡æ¯
+	void showStu();												 //å±•ç¤ºæ‰€æœ‰è€ƒç”Ÿä¿¡æ¯
+	STU *findStu(int item);										 //æŸ¥æ‰¾è€ƒç”Ÿä¿¡æ¯
 	void findStu();
 };

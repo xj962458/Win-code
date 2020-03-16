@@ -5,17 +5,17 @@ int main()
 {    
     int divisor, dividend, quotient, remainder;
  
-    cout << "ÊäÈë±»³ýÊý: ";
+    cout << "è¾“å…¥è¢«é™¤æ•°: ";
     cin >> dividend;
  
-    cout << "ÊäÈë³ýÊý: ";
+    cout << "è¾“å…¥é™¤æ•°: ";
     cin >> divisor;
  
     quotient = dividend / divisor;
     remainder = dividend % divisor;
  
-    cout << "ÉÌ = " << quotient << endl;
-    cout << "ÓàÊý = " << remainder;
+    cout << "å•† = " << quotient << endl;
+    cout << "ä½™æ•° = " << remainder;
  
     return 0;
 }

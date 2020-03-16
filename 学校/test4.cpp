@@ -4,10 +4,11 @@ int main()
 {
     int *p, a[9];
     //p=&a;
-    p = new int; //ÕâÊÇÒ»ÖÖĞÂµÄ¸³ÖµĞÎÊ½
+    p = new int; //è¿™æ˜¯ä¸€ç§æ–°çš„èµ‹å€¼å½¢å¼
     *p = 30;
     cout << p << "  " << *p << endl;
     delete p;
     cout << p << "  " << *p << endl;
     return 0;
 }
+

@@ -7,9 +7,9 @@ using namespace std;
 
 typedef struct user
 {
-	string m_name;  //ÓÃ»§Ãû
-	string m_password;  //ÃÜÂë
-	user* next_user;  //Á´±í
+	string m_name;  //ç”¨æˆ·å
+	string m_password;  //å¯†ç 
+	user* next_user;  //é“¾è¡¨
 }user;
 
 class User
@@ -17,18 +17,19 @@ class User
 public:
 	User();
 	~User();
-	user* findByName(const string& name) const;  //²éÕÒÎÄ¼şÖĞµÄÓÃ»§Ãû
-	//·Ç¾²Ì¬³ÉÔ±º¯ÊıÃûºó¼ÓconstĞŞÊÎthisÖ¸Õë£¬±íÊ¾²»ÔÊĞíĞŞ¸Ä³ÉÔ±±äÁ¿
-	void readFile();  //¶ÁÈ¡ÎÄ¼ş
-	void saveFile();  //±£´æÎÄ¼ş
-	void login();  //×¢²áº¯Êı
-	bool logon();  //µÇÂ½º¯Êı
-	unsigned headCount();  //½á¹¹¼ÆÊıº¯Êı
-	bool insert(const user& astu);  //²åÈëº¯Êı
-	void deleteByName();  //É¾³ıº¯Êı
-	void show();   //ÏÔÊ¾º¯Êı
+	user* findByName(const string& name) const;  //æŸ¥æ‰¾æ–‡ä»¶ä¸­çš„ç”¨æˆ·å
+	//éé™æ€æˆå‘˜å‡½æ•°åååŠ constä¿®é¥°thisæŒ‡é’ˆï¼Œè¡¨ç¤ºä¸å…è®¸ä¿®æ”¹æˆå‘˜å˜é‡
+	void readFile();  //è¯»å–æ–‡ä»¶
+	void saveFile();  //ä¿å­˜æ–‡ä»¶
+	void login();  //æ³¨å†Œå‡½æ•°
+	bool logon();  //ç™»é™†å‡½æ•°
+	unsigned headCount();  //ç»“æ„è®¡æ•°å‡½æ•°
+	bool insert(const user& astu);  //æ’å…¥å‡½æ•°
+	void deleteByName();  //åˆ é™¤å‡½æ•°
+	void show();   //æ˜¾ç¤ºå‡½æ•°
 private:
 	user* head;
 };
 
 #endif
+

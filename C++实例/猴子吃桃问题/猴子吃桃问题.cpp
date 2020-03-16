@@ -7,3 +7,4 @@ int main()
         cout<<"第一天共摘的桃子数量为 "<<x<<endl;
     return 0;
 }
+

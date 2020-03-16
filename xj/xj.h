@@ -1,17 +1,16 @@
-CComboBox cbx_major;//×¨Òµ¹ØÁªµÄ¿Ø¼þ±äÁ¿
-int int_sex;        //ÐÔ±ð¹ØÁªµÄ±äÁ¿
-CString name;       //ÐÕÃû¹ØÁªµÄ±äÁ¿
+CComboBox cbx_major;//ä¸“ä¸šå…³è”çš„æŽ§ä»¶å˜é‡
+int int_sex;        //æ€§åˆ«å…³è”çš„å˜é‡
+CString name;       //å§“åå…³è”çš„å˜é‡
 
-CComboBox cbx_major;//×¨Òµ¹ØÁªµÄ¿Ø¼þ±äÁ¿
-int int_sex;        //ÐÔ±ð¹ØÁªµÄ±äÁ¿
-CString name;       //ÐÕÃû¹ØÁªµÄ±äÁ¿
+CComboBox cbx_major;//ä¸“ä¸šå…³è”çš„æŽ§ä»¶å˜é‡
+int int_sex;        //æ€§åˆ«å…³è”çš„å˜é‡
+CString name;       //å§“åå…³è”çš„å˜é‡
 
 BOOL CdialogDlg::OnInitDialog()
 {
 		CDialog::OnInitDialog();
 	
-		this->cbx_major.SetCurSel(2);//Ä¬ÈÏÑ¡ÔñµÚÏî£¬¼´¼ÆËã»ú
+		this->cbx_major.SetCurSel(2);//é»˜è®¤é€‰æ‹©ç¬¬é¡¹ï¼Œå³è®¡ç®—æœº
 
-		// ½«¡°¹ØÓÚ...¡±²Ëµ¥ÏîÌí¼Óµ½ÏµÍ³²Ëµ¥ÖÐ¡£
-¡­
+		// å°†â€œå…³äºŽ...â€èœå•é¡¹æ·»åŠ åˆ°ç³»ç»Ÿèœå•ä¸­ã€‚
 }

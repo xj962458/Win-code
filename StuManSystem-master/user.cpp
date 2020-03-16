@@ -32,7 +32,7 @@ void User::readFile()
 	file.open(new_file.c_str(), ios::in);
 	if (file.bad())
 	{
-		cout << "Œƒº˛¥Úø™ ß∞‹........." << endl;
+		cout << "Êñá‰ª∂ÊâìÂºÄÂ§±Ë¥•........." << endl;
 		return;
 	}
 	int len = 0;
@@ -40,7 +40,7 @@ void User::readFile()
 	//cout << "len = " << len << endl;
 	if (!len)
 	{
-		cout << "“—–¬Ω®π‹¿Ì‘± ˝æ›Œƒº˛£¨«Î◊¢≤·π‹¿Ì‘±’À∫≈....." << endl;
+		cout << "Â∑≤Êñ∞Âª∫ÁÆ°ÁêÜÂëòÊï∞ÊçÆÊñá‰ª∂ÔºåËØ∑Ê≥®ÂÜåÁÆ°ÁêÜÂëòË¥¶Âè∑....." << endl;
 		login();
 		return;
 	}
@@ -54,7 +54,7 @@ void User::readFile()
 	}
 	file.close();
 	
-	cout << "«Î ‰»Îπ‹¿Ì‘±’À∫≈“‘µ«¬Ω......." << endl;
+	cout << "ËØ∑ËæìÂÖ•ÁÆ°ÁêÜÂëòË¥¶Âè∑‰ª•ÁôªÈôÜ......." << endl;
 	return;
 }
 
@@ -65,7 +65,7 @@ void User::saveFile()
 	file.open(new_file.c_str(), ios::out);
 	if (file.bad())
 	{
-		cout << "Œƒº˛¥Úø™ ß∞‹.........." << endl;
+		cout << "Êñá‰ª∂ÊâìÂºÄÂ§±Ë¥•.........." << endl;
 		return;
 	}
 	int len = headCount() - 1;
@@ -84,20 +84,20 @@ void User::saveFile()
 bool User::insert(const user& astu)
 {
 	user* p = head;
-	if (p->next_user == nullptr)  //µ±√ª”–œ¬“ª∏ˆ∂—£¨‘Ú–¬Ω®“ª∏ˆ∂—¿¥¥¢¥Ê–ﬁ∏ƒ ˝æ›
+	if (p->next_user == nullptr)  //ÂΩìÊ≤°Êúâ‰∏ã‰∏Ä‰∏™Â†ÜÔºåÂàôÊñ∞Âª∫‰∏Ä‰∏™Â†ÜÊù•ÂÇ®Â≠ò‰øÆÊîπÊï∞ÊçÆ
 	{
-		p->next_user = new user(astu);  //”√¥´»Îµƒ“—–ﬁ∏ƒΩ·ππ≥ı ºªØ
-		p->next_user->next_user = nullptr;  //nullptr¥¶¿Ì‘Ÿœ¬“ª∏ˆ∂—
+		p->next_user = new user(astu);  //Áî®‰º†ÂÖ•ÁöÑÂ∑≤‰øÆÊîπÁªìÊûÑÂàùÂßãÂåñ
+		p->next_user->next_user = nullptr;  //nullptrÂ§ÑÁêÜÂÜç‰∏ã‰∏Ä‰∏™Â†Ü
 		return true;
 	}
-	while (p->next_user)  //µ±¥Ê‘⁄œ¬“ª∏ˆ∂—
+	while (p->next_user)  //ÂΩìÂ≠òÂú®‰∏ã‰∏Ä‰∏™Â†Ü
 	{
-		if (p->next_user->m_name == astu.m_name)  //≈–÷ÿ
+		if (p->next_user->m_name == astu.m_name)  //Âà§Èáç
 		{
-			cout << "”√ªß√˚÷ÿ∏¥£¨≤Â»Î ß∞‹......." << endl;
+			cout << "Áî®Êà∑ÂêçÈáçÂ§çÔºåÊèíÂÖ•Â§±Ë¥•......." << endl;
 			return false;
 		}
-		p = p->next_user;  //º»≤ª¥Û”⁄“≤≤ª÷ÿ∏¥æÕ∫Û“∆ÃÌº”
+		p = p->next_user;  //Êó¢‰∏çÂ§ß‰∫é‰πü‰∏çÈáçÂ§çÂ∞±ÂêéÁßªÊ∑ªÂä†
 	}
 	p->next_user = new user(astu);
 	p->next_user->next_user = nullptr;
@@ -129,18 +129,18 @@ void User::deleteByName()
 {
 	user* p = nullptr;
 	user* q = nullptr;
-	cout << "«Î ‰»Î“™…æ≥˝µƒ”√ªß√˚£∫" << endl;
+	cout << "ËØ∑ËæìÂÖ•Ë¶ÅÂà†Èô§ÁöÑÁî®Êà∑ÂêçÔºö" << endl;
 	string name;
 	cin >> name;
 	p = findByName(name);
 	if (p == nullptr)
 	{
-		cout << "√ª”–’“µΩ’À∫≈ \"" << name << "\", …æ≥˝ ß∞‹....." << endl;
+		cout << "Ê≤°ÊúâÊâæÂà∞Ë¥¶Âè∑ \"" << name << "\", Âà†Èô§Â§±Ë¥•....." << endl;
 	}
 	q = p->next_user;
 	p->next_user = nullptr;
 	delete q;
-	cout << "≥…π¶…æ≥˝ \"" << name << "\"µƒ’À∫≈......." << endl;
+	cout << "ÊàêÂäüÂà†Èô§ \"" << name << "\"ÁöÑË¥¶Âè∑......." << endl;
 	saveFile();
 }
 
@@ -150,7 +150,7 @@ void User::show()
 	cout << "------------------------------------\n" << endl;
 	for (p = head->next_user; p; p = p->next_user)
 	{
-		cout << "”√ªß√˚£∫" << p->m_name << "	√‹¬Î£∫" << p->m_password << endl;
+		cout << "Áî®Êà∑ÂêçÔºö" << p->m_name << "	ÂØÜÁ†ÅÔºö" << p->m_password << endl;
 	}
 	cout << "------------------------------------\n" << endl;
 }
@@ -158,17 +158,17 @@ void User::show()
 void User::login()
 {
 	user tmp;
-	cout << "«Î ‰»Î◊¢≤·”√µƒ”√ªß√˚£∫";
+	cout << "ËØ∑ËæìÂÖ•Ê≥®ÂÜåÁî®ÁöÑÁî®Êà∑ÂêçÔºö";
 	cin >> tmp.m_name;
 	if (findByName(tmp.m_name) == nullptr)
 	{
-		cout << "«Î ‰»Î◊¢≤·”√µƒ√‹¬Î£∫";
+		cout << "ËØ∑ËæìÂÖ•Ê≥®ÂÜåÁî®ÁöÑÂØÜÁ†ÅÔºö";
 		cin >> tmp.m_password;
 		insert(tmp);
 	}
 	else
 	{
-		cout << "ƒ˙ ‰»Îµƒ”√ªß√˚£∫" << tmp.m_name << "“—¥Ê‘⁄£¨«Î÷ÿ–¬ ‰»Î”√ªß√˚" << endl;
+		cout << "ÊÇ®ËæìÂÖ•ÁöÑÁî®Êà∑ÂêçÔºö" << tmp.m_name << "Â∑≤Â≠òÂú®ÔºåËØ∑ÈáçÊñ∞ËæìÂÖ•Áî®Êà∑Âêç" << endl;
 		login();
 	}
 	saveFile();
@@ -176,31 +176,31 @@ void User::login()
 
 bool User::logon()
 {
-	cout << "µ«¬Ω" << endl;
-	cout << "«Î ‰»Îµ«¬Ω”√ªß√˚£∫";
+	cout << "ÁôªÈôÜ" << endl;
+	cout << "ËØ∑ËæìÂÖ•ÁôªÈôÜÁî®Êà∑ÂêçÔºö";
 	string name;
 	cin >> name;
 	user* p = nullptr;
 	if (findByName(name))
 	{
 		p = findByName(name);
-		cout << "«Î ‰»Îµ«¬Ω√‹¬Î£∫";
+		cout << "ËØ∑ËæìÂÖ•ÁôªÈôÜÂØÜÁ†ÅÔºö";
 		string password;
 		cin >> password;
 		if (p->next_user->m_password == password)
 		{
-			cout << "µ«¬Ω≥…π¶.........." << endl;
+			cout << "ÁôªÈôÜÊàêÂäü.........." << endl;
 			return true;
 		}
 		else
 		{
-			cout << "µ«¬Ω√‹¬Î¥ÌŒÛ£¨«Î÷ÿ–¬ ‰»Î...." << endl;
+			cout << "ÁôªÈôÜÂØÜÁ†ÅÈîôËØØÔºåËØ∑ÈáçÊñ∞ËæìÂÖ•...." << endl;
 			logon();
 		}
 	}
 	else
 	{
-		cout << "√ª”–’“µΩ¥À”√ªß√˚£°" << endl;
+		cout << "Ê≤°ÊúâÊâæÂà∞Ê≠§Áî®Êà∑ÂêçÔºÅ" << endl;
 		logon();
 	}
 	return false;

@@ -3,7 +3,7 @@
 int main()
 {
     int n;
-    printf("请输入来那个菱形边长:");
+    printf("璇疯緭鍏ユ潵閭ｄ釜鑿卞舰杈归暱:");
     scanf("%d", &n);
     for (int x =-(n-1);x<=(n - 1);x++)
     {

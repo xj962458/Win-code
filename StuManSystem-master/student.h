@@ -8,60 +8,60 @@ using namespace std;
 
 typedef struct student
 {
-	//unsignedÈôÊ¡ÂÔºóÒ»¸ö¹Ø¼ü×Ö£¬´ó¶àÊı±àÒëÆ÷»áÄ¬ÈÏÎªunsigned int
-	unsigned stu_id;	   //Ñ§ºÅ
-	string stu_name;	   //ĞÕÃû
-	unsigned stu_age;	  //ÄêÁä
-	string stu_sex;		   //ĞÔ±ğ
-	string stu_birth;	  //¼®¹á
-	string stu_tel;		   //µç»°
-	string stu_email;	  //µç×ÓÓÊ¼ş
-	string stu_department; //Ïµ±ğ
-	string stu_major;	  //×¨Òµ
-	string stu_class;	  //°à¼¶
-	student *stu_next;	 //ÉäÏß½á¹¹Á´±í
+	//unsignedè‹¥çœç•¥åä¸€ä¸ªå…³é”®å­—ï¼Œå¤§å¤šæ•°ç¼–è¯‘å™¨ä¼šé»˜è®¤ä¸ºunsigned int
+	unsigned stu_id;	   //å­¦å·
+	string stu_name;	   //å§“å
+	unsigned stu_age;	  //å¹´é¾„
+	string stu_sex;		   //æ€§åˆ«
+	string stu_birth;	  //ç±è´¯
+	string stu_tel;		   //ç”µè¯
+	string stu_email;	  //ç”µå­é‚®ä»¶
+	string stu_department; //ç³»åˆ«
+	string stu_major;	  //ä¸“ä¸š
+	string stu_class;	  //ç­çº§
+	student *stu_next;	 //å°„çº¿ç»“æ„é“¾è¡¨
 } student;
 
 class Student
 {
 public:
-	Student();  //¹¹Ôìº¯Êı
-	~Student(); //Îö¹¹º¯Êı
+	Student();  //æ„é€ å‡½æ•°
+	~Student(); //ææ„å‡½æ•°
 
-	//Â¼ÈëÑ§ÉúĞÅÏ¢
-	//´Ó±ê×¼ÊäÈëÖĞ´´½¨Ñ§Éú£¬model = 1:²»¶ÁÈ¡Ñ§ºÅ£¬2£º²»¶ÁÈ¡ĞÕÃû£¬ÆäËû£¬¶ÁÈ¡ËùÓĞĞÅÏ¢
+	//å½•å…¥å­¦ç”Ÿä¿¡æ¯
+	//ä»æ ‡å‡†è¾“å…¥ä¸­åˆ›å»ºå­¦ç”Ÿï¼Œmodel = 1:ä¸è¯»å–å­¦å·ï¼Œ2ï¼šä¸è¯»å–å§“åï¼Œå…¶ä»–ï¼Œè¯»å–æ‰€æœ‰ä¿¡æ¯
 	student *createByStdin(int model, student &tmp);
-	void logon(); //Á¬ĞøÂ¼ÈëÑ§ÉúĞÅÏ¢
+	void logon(); //è¿ç»­å½•å…¥å­¦ç”Ÿä¿¡æ¯
 
-	//²éÕÒ
-	void Query() const;								 //²éÑ¯Ñ§ÉúĞÅÏ¢
-	student *findById(unsigned id) const;			 //¸ù¾İÑ§ºÅ²éÕÒ
-	student *findByName(const string &name) const;   //¸ù¾İĞÕÃû²éÕÒ
-	student *findBySex(const string &sex) const;	 //¸ù¾İĞÔ±ğ²éÕÒ
-	student *findByEmail(const string &email) const; //¸ù¾İµç×ÓÓÊ¼ş²éÕÒ
+	//æŸ¥æ‰¾
+	void Query() const;								 //æŸ¥è¯¢å­¦ç”Ÿä¿¡æ¯
+	student *findById(unsigned id) const;			 //æ ¹æ®å­¦å·æŸ¥æ‰¾
+	student *findByName(const string &name) const;   //æ ¹æ®å§“åæŸ¥æ‰¾
+	student *findBySex(const string &sex) const;	 //æ ¹æ®æ€§åˆ«æŸ¥æ‰¾
+	student *findByEmail(const string &email) const; //æ ¹æ®ç”µå­é‚®ä»¶æŸ¥æ‰¾
 
-	//É¾³ı
-	void deleteBy();				 //É¾³ı
-	bool deleteById(unsigned &id);   //¸ù¾İÑ§ºÅÉ¾³ı
-	bool deleteByName(string &name); //¸ù¾İĞÕÃûÉ¾³ı
+	//åˆ é™¤
+	void deleteBy();				 //åˆ é™¤
+	bool deleteById(unsigned &id);   //æ ¹æ®å­¦å·åˆ é™¤
+	bool deleteByName(string &name); //æ ¹æ®å§“ååˆ é™¤
 
-	//ĞŞ¸Ä
-	void modify();		 //ĞŞ¸Ä
-	bool modifyById();   //¸ù¾İÑ§ºÅĞŞ¸Ä
-	bool modifyByName(); //¸ù¾İĞÕÃûĞŞ¸Ä
+	//ä¿®æ”¹
+	void modify();		 //ä¿®æ”¹
+	bool modifyById();   //æ ¹æ®å­¦å·ä¿®æ”¹
+	bool modifyByName(); //æ ¹æ®å§“åä¿®æ”¹
 
-	//ÏÔÊ¾
-	void Show() const; //ÁĞ³öÑ§ÉúĞÅÏ¢
+	//æ˜¾ç¤º
+	void Show() const; //åˆ—å‡ºå­¦ç”Ÿä¿¡æ¯
 
-	//ÎÄ¼ş²Ù×÷
-	void saveToFile(); //±£´æµ½ÎÄ¼ş
-	void readFile();   //¶ÁÈ¡ÎÄ¼ş
+	//æ–‡ä»¶æ“ä½œ
+	void saveToFile(); //ä¿å­˜åˆ°æ–‡ä»¶
+	void readFile();   //è¯»å–æ–‡ä»¶
 	bool insert(const student &astu);
 
 	unsigned headCount() const;
 
 private:
-	student *head; //È«¾ÖµÄÒıµ¼½øÈëÁ´±íµÄÖ¸Õë
+	student *head; //å…¨å±€çš„å¼•å¯¼è¿›å…¥é“¾è¡¨çš„æŒ‡é’ˆ
 };
 
 #endif

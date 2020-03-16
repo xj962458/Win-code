@@ -5,14 +5,14 @@ int main()
 {
     int a = 5, b = 10, temp;
  
-    cout << "½»»»Ö®Ç°£º" << endl;
+    cout << "äº¤æ¢ä¹‹å‰ï¼š" << endl;
     cout << "a = " << a << ", b = " << b << endl;
  
     temp = a;
     a = b;
     b = temp;
  
-    cout << "\n½»»»Ö®ºó£º" << endl;
+    cout << "\näº¤æ¢ä¹‹åï¼š" << endl;
     cout << "a = " << a << ", b = " << b << endl;
  
     return 0;

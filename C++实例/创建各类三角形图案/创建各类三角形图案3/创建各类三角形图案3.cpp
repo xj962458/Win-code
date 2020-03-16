@@ -5,7 +5,7 @@ int main()
 {
     char input, alphabet = 'A';
  
-    cout << "ÊäÈë×îºóÒ»¸ö´óĞ´×ÖÄ¸: ";
+    cout << "è¾“å…¥æœ€åä¸€ä¸ªå¤§å†™å­—æ¯: ";
     cin >> input;
  
     for(int i = 1; i <= (input-'A'+1); ++i)

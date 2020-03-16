@@ -5,13 +5,13 @@ int main()
 {
     int firstNumber, secondNumber, sumOfTwoNumbers;
     
-    cout << "输入两个整数: ";
+    cout << "杈撳叆涓や釜鏁存暟: ";
     cin >> firstNumber >> secondNumber;
  
-    // 相加
+    // 鐩稿姞
     sumOfTwoNumbers = firstNumber + secondNumber;
  
-    // 输出
+    // 杈撳嚭
     cout << firstNumber << " + " <<  secondNumber << " = " << sumOfTwoNumbers;     
  
     return 0;

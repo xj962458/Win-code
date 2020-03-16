@@ -5,7 +5,7 @@ int main()
 {
     int n, sum = 0;
  
-    cout << "输入一个正整数: ";
+    cout << "杈撳叆涓�涓鏁存暟: ";
     cin >> n;
  
     for (int i = 1; i <= n; ++i) {

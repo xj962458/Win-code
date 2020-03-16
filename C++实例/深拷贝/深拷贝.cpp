@@ -42,8 +42,8 @@ student::~student()
 }
 void student::printstu()
 {
-    cout<<"Ñ§ºÅ:"<<id<<"    ĞÕÃû£º"<<name;
-    cout<<"ÄêÁä£º"<<age<<"³É¼¨£º"<<score<<endl;
+    cout<<"å­¦å·:"<<id<<"    å§“åï¼š"<<name;
+    cout<<"å¹´é¾„ï¼š"<<age<<"æˆç»©ï¼š"<<score<<endl;
 }
 int main()
 {
@@ -54,3 +54,4 @@ int main()
     return 0;
     getchar();
 }
+

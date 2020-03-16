@@ -2,12 +2,12 @@
 #include "1.h"
 #include <iostream>
 using namespace std;
-STU *head = NULL;           //Í·Ö¸Õë
-STU *endp = NULL;             //Î²Ö¸Õë
+STU *head = NULL;           //å¤´æŒ‡é’ˆ
+STU *endp = NULL;             //å°¾æŒ‡é’ˆ
 linkedList::linkedList(){
-	stuNum = 0;          //Ñ§ºÅ³õÊ¼»¯Îª0
+	stuNum = 0;          //å­¦å·åˆå§‹åŒ–ä¸º0
 }
-linkedList::~linkedList(){//Îö¹¹º¯Êı£¬É¾³ıÁ´±íÃ¿Ò»¸ö½Úµã
+linkedList::~linkedList(){//ææ„å‡½æ•°ï¼Œåˆ é™¤é“¾è¡¨æ¯ä¸€ä¸ªèŠ‚ç‚¹
 	STU * p = head;
 	STU *temp;
 	while (p != head)
@@ -18,29 +18,29 @@ linkedList::~linkedList(){//Îö¹¹º¯Êı£¬É¾³ıÁ´±íÃ¿Ò»¸ö½Úµã
 	}
 	delete p;
 }
-/*ÓÃ»§ÊäÈë²åÈëÎ»ÖÃ£¬²åÈë·½Ê½Îªµ÷ÓÃÀà·½·¨findStu(int pos)ÕÒµ½¸ÃÎ»ÖÃ£¬
-ÅĞ¶Ï¸ÃÎ»ÖÃÊÇµÚÒ»¸ö¡¢×îºóÒ»¸ö»¹ÊÇÖĞ¼äµÄÎ»ÖÃ¡£È»ºó²Ù×÷Ç°ºóÖ¸Õë½øĞĞ²åÈë£¬
-Í¬Ê±¶¯Ì¬Éú³ÉĞèÒª²åÈëµÄÊı¾İ£¬×îºóÁ´±í³¤¶È¼ÓÒ»¡£*/
+/*ç”¨æˆ·è¾“å…¥æ’å…¥ä½ç½®ï¼Œæ’å…¥æ–¹å¼ä¸ºè°ƒç”¨ç±»æ–¹æ³•findStu(int pos)æ‰¾åˆ°è¯¥ä½ç½®ï¼Œ
+åˆ¤æ–­è¯¥ä½ç½®æ˜¯ç¬¬ä¸€ä¸ªã€æœ€åä¸€ä¸ªè¿˜æ˜¯ä¸­é—´çš„ä½ç½®ã€‚ç„¶åæ“ä½œå‰åæŒ‡é’ˆè¿›è¡Œæ’å…¥ï¼Œ
+åŒæ—¶åŠ¨æ€ç”Ÿæˆéœ€è¦æ’å…¥çš„æ•°æ®ï¼Œæœ€åé“¾è¡¨é•¿åº¦åŠ ä¸€ã€‚*/
 void linkedList::insertStu(){
 	int pos;
-	STU *insertStu = new STU;				//²åÈë¿¼ÉúĞÅÏ¢£¬ÏÈ»ñµÃ¿¼ÉúµÄÎ»ÖÃ
-	cout << "ÇëÊäÈëÄãÒª²åÈëµÄ¿¼ÉúµÄÎ»ÖÃ£º";
+	STU *insertStu = new STU;				//æ’å…¥è€ƒç”Ÿä¿¡æ¯ï¼Œå…ˆè·å¾—è€ƒç”Ÿçš„ä½ç½®
+	cout << "è¯·è¾“å…¥ä½ è¦æ’å…¥çš„è€ƒç”Ÿçš„ä½ç½®ï¼š";
 	cin >> pos;
 
 	if (pos != stuNum + 1){
 		STU *temp = findStu(pos);
-		//Èİ´í²Ù×÷
+		//å®¹é”™æ“ä½œ
 		while (!temp){
-			cout << "¶Ô²»Æğ£¬Ã»ÓĞÕÒµ½ÄúËùÒªÇó²åÈëµÄÎ»ÖÃ£¬ÇëÖØĞÂÊäÈëÎ»ÖÃ, »òÕß°´0È¡Ïû£º";
+			cout << "å¯¹ä¸èµ·ï¼Œæ²¡æœ‰æ‰¾åˆ°æ‚¨æ‰€è¦æ±‚æ’å…¥çš„ä½ç½®ï¼Œè¯·é‡æ–°è¾“å…¥ä½ç½®, æˆ–è€…æŒ‰0å–æ¶ˆï¼š";
 			int pos2;
 			cin >> pos2;
 			if (pos2 == 0)
 				return;
 			temp = findStu(pos2);
 		}
-		cout << "ÇëÒÀ´ÎÊäÈëÒª²åÈëµÄ¿¼ÉúµÄ¿¼ºÅ£¬ĞÕÃû£¬ĞÔ±ğ£¬ÄêÁä¼°±¨¿¼Àà±ğ£¡" << endl;
+		cout << "è¯·ä¾æ¬¡è¾“å…¥è¦æ’å…¥çš„è€ƒç”Ÿçš„è€ƒå·ï¼Œå§“åï¼Œæ€§åˆ«ï¼Œå¹´é¾„åŠæŠ¥è€ƒç±»åˆ«ï¼" << endl;
 		cin >> insertStu->stuTestNum >> insertStu->stuName >> insertStu->stuSex >> insertStu->stuAge >> insertStu->stuCategory;
-		//ÔÚ»ñµÃ¿¼ÉúµÄ¸÷ÏîĞÅÏ¢ºó£¬½øĞĞ²åÈë²Ù×÷
+		//åœ¨è·å¾—è€ƒç”Ÿçš„å„é¡¹ä¿¡æ¯åï¼Œè¿›è¡Œæ’å…¥æ“ä½œ
 		if (temp->pre != NULL){
 			temp->pre->next = insertStu;
 			insertStu->pre = temp->pre;
@@ -56,14 +56,14 @@ void linkedList::insertStu(){
 		}
 	}
 	else{
-		cout << endl << "ÇëÒÀ´ÎÊäÈëÒª²åÈëµÄ¿¼ÉúµÄ¿¼ºÅ£¬ĞÕÃû£¬ĞÔ±ğ£¬ÄêÁä¼°±¨¿¼Àà±ğ£¡" << endl;
+		cout << endl << "è¯·ä¾æ¬¡è¾“å…¥è¦æ’å…¥çš„è€ƒç”Ÿçš„è€ƒå·ï¼Œå§“åï¼Œæ€§åˆ«ï¼Œå¹´é¾„åŠæŠ¥è€ƒç±»åˆ«ï¼" << endl;
 		cin >> insertStu->stuTestNum >> insertStu->stuName >> insertStu->stuSex >> insertStu->stuAge >> insertStu->stuCategory;
-		//Í·Ö¸ÕëÎª¿Õ
+		//å¤´æŒ‡é’ˆä¸ºç©º
 		if (!head){
 			head = insertStu;
 			endp = insertStu;
 		}
-		//Í·Ö¸Õë²»Îª¿Õ
+		//å¤´æŒ‡é’ˆä¸ä¸ºç©º
 		else{
 			endp->next = insertStu;
 			insertStu->pre = endp;
@@ -74,7 +74,7 @@ void linkedList::insertStu(){
 	stuNum++;
 
 }
-/*¸´ÖÆ¿¼ÉúµÄĞÅÏ¢,student1¸´ÖÆµÄ£¬student2Îª±»¸´ÖÆµÄ*/
+/*å¤åˆ¶è€ƒç”Ÿçš„ä¿¡æ¯,student1å¤åˆ¶çš„ï¼Œstudent2ä¸ºè¢«å¤åˆ¶çš„*/
 void linkedList::copyStu(STU *student1, STU &student2){
 	student1->stuAge = student2.stuAge;
 	student1->stuCategory = student2.stuCategory;
@@ -84,17 +84,17 @@ void linkedList::copyStu(STU *student1, STU &student2){
 }
 void linkedList::addStu(STU &item){
 	STU *student = new STU;
-	if (!student){	//Èİ´í²Ù×÷
-		cout << "´íÎó" << endl;
+	if (!student){	//å®¹é”™æ“ä½œ
+		cout << "é”™è¯¯" << endl;
 		return;
 	}
-	copyStu(student, item);//ÏÈ¸´ÖÆ¿¼ÉúµÄĞÅÏ¢µ½student
+	copyStu(student, item);//å…ˆå¤åˆ¶è€ƒç”Ÿçš„ä¿¡æ¯åˆ°student
 	stuNum++;
 	if (!head){
 		head = student;
 		endp = student;
 	}
-	//Èç¹ûÁ´±í²»Îª¿Õ
+	//å¦‚æœé“¾è¡¨ä¸ä¸ºç©º
 	else{
 		endp->next = student;
 		student->pre = endp;
@@ -102,16 +102,16 @@ void linkedList::addStu(STU &item){
 		endp = student;
 	}
 }
-/*¸ù¾İÊäÈëµÄ¿¼ÉúµÄ¿¼ºÅ£¬ÏÈÅĞ¶ÏÆäÎ»ÖÃ£¬ÕÒµ½ĞèÒªÉ¾³ıµÄ½á¹¹ÌåÖ®ºó£¬
-¶ÔÆäÇ°ºóÖ¸Õë½øĞĞ²Ù×÷£¬
-½«Æä´ÓÁ´±íÖĞÍÑÀë³öÀ´£¬È»ºó½«ÆäÄÚ´æÊÍ·Å¡£*/
+/*æ ¹æ®è¾“å…¥çš„è€ƒç”Ÿçš„è€ƒå·ï¼Œå…ˆåˆ¤æ–­å…¶ä½ç½®ï¼Œæ‰¾åˆ°éœ€è¦åˆ é™¤çš„ç»“æ„ä½“ä¹‹åï¼Œ
+å¯¹å…¶å‰åæŒ‡é’ˆè¿›è¡Œæ“ä½œï¼Œ
+å°†å…¶ä»é“¾è¡¨ä¸­è„±ç¦»å‡ºæ¥ï¼Œç„¶åå°†å…¶å†…å­˜é‡Šæ”¾ã€‚*/
 void linkedList::deleteStu(){
 	int deleteNum;
 	STU *deleteStu;
-	cout << "ÇëÊäÈëÒªÉ¾³ıµÄ¿¼ÉúµÄ¿¼ºÅ£º";//Í¨¹ıÓÃ»§ÊäÈëµÄÑ§ºÅÑ°ÕÒ¿¼ÉúµÄĞÅÏ¢
+	cout << "è¯·è¾“å…¥è¦åˆ é™¤çš„è€ƒç”Ÿçš„è€ƒå·ï¼š";//é€šè¿‡ç”¨æˆ·è¾“å…¥çš„å­¦å·å¯»æ‰¾è€ƒç”Ÿçš„ä¿¡æ¯
 	cin >> deleteNum;
 	deleteStu = findStu(deleteNum);
-	cout << "ÄãÉ¾³ıµÄ¿¼ÉúĞÅÏ¢ÊÇ£º";
+	cout << "ä½ åˆ é™¤çš„è€ƒç”Ÿä¿¡æ¯æ˜¯ï¼š";
 	cout << deleteStu->stuTestNum << "       " << deleteStu->stuName << "    " << deleteStu->stuSex << "      "
 		<< deleteStu->stuAge << "        " << deleteStu->stuCategory << endl;
 	if (deleteStu->pre != NULL && deleteStu->next != NULL){
@@ -119,13 +119,13 @@ void linkedList::deleteStu(){
 		deleteStu->next->pre = deleteStu->pre;
 		delete deleteStu;
 	}
-	//É¾³ı¿¼ÊÔÎ»ÓÚ¶ÓÊ×
+	//åˆ é™¤è€ƒè¯•ä½äºé˜Ÿé¦–
 	if (deleteStu->pre == NULL && deleteStu->next != NULL){
 		deleteStu->next->pre = NULL;
 		head = deleteStu->next;
 		delete deleteStu;
 	}
-	//É¾³ı¿¼ÉúÎ»ÓÚ¶ÓÎ²
+	//åˆ é™¤è€ƒç”Ÿä½äºé˜Ÿå°¾
 	if (deleteStu->pre != NULL && deleteStu->next == NULL){
 		deleteStu->pre->next = NULL;
 		endp = deleteStu->pre;
@@ -135,23 +135,23 @@ void linkedList::deleteStu(){
 }
 void linkedList::editStu(){
 	STU *editStu;
-	int pos;   //¸ù¾İÓÃ»§ÊäÈëµÄ¿¼ÉúµÄ¿¼ºÅ½øĞĞĞŞ¸Ä
-	cout << "ÇëÒÀ´ÎÊäÈëÒªĞŞ¸Ä¿¼ÉúµÄ¿¼ºÅ£¬ĞÕÃû£¬ĞÔ±ğ£¬ÄêÁäÒÔ¼°±¨¿¼Àà±ğ£¡" << endl;
+	int pos;   //æ ¹æ®ç”¨æˆ·è¾“å…¥çš„è€ƒç”Ÿçš„è€ƒå·è¿›è¡Œä¿®æ”¹
+	cout << "è¯·ä¾æ¬¡è¾“å…¥è¦ä¿®æ”¹è€ƒç”Ÿçš„è€ƒå·ï¼Œå§“åï¼Œæ€§åˆ«ï¼Œå¹´é¾„ä»¥åŠæŠ¥è€ƒç±»åˆ«ï¼" << endl;
 	cin >> pos;
 	editStu = findStu(pos);
 	editStu->stuTestNum = pos;
 	cin >> editStu->stuName >> editStu->stuSex >> editStu->stuAge >> editStu->stuCategory;
 }
-/*¸ù¾İÓÃ»§²åÈëµÄÎ»ÖÃ£¬½¨Á¢Ò»¸öÍ·Ö¸Õë£¬
-ÒÀ´Î´ÓÍ·Ñ°ÕÒµ½¸ÃÎ»ÖÃ£¬½«¸ÃÎ»ÖÃ¿¼ÉúµÄĞÅÏ¢Êä³ö¡£*/
+/*æ ¹æ®ç”¨æˆ·æ’å…¥çš„ä½ç½®ï¼Œå»ºç«‹ä¸€ä¸ªå¤´æŒ‡é’ˆï¼Œ
+ä¾æ¬¡ä»å¤´å¯»æ‰¾åˆ°è¯¥ä½ç½®ï¼Œå°†è¯¥ä½ç½®è€ƒç”Ÿçš„ä¿¡æ¯è¾“å‡ºã€‚*/
 void linkedList::findStu(){
 	int searchNum;
 	STU *searchStu = head;
-	cout << "ÇëÊäÈëÒª²éÕÒµÄ¿¼ÉúµÄ¿¼ºÅ£º";
+	cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„è€ƒç”Ÿçš„è€ƒå·ï¼š";
 	cin >> searchNum;
 	for (int iX = 0; iX < stuNum; iX++){
 		if (searchStu->stuTestNum == searchNum){
-			cout << "¿¼ºÅ    ĞÕÃû    ĞÔ±ğ    ÄêÁä      Àà±ğ" << endl;
+			cout << "è€ƒå·    å§“å    æ€§åˆ«    å¹´é¾„      ç±»åˆ«" << endl;
 			cout << searchStu->stuTestNum << "       " << searchStu->stuName << "    " << searchStu->stuSex << "      "
 				<< searchStu->stuAge << "        " << searchStu->stuCategory << endl;
 			break;
@@ -170,11 +170,11 @@ STU *linkedList::findStu(int item){
 	}
 	return NULL;
 }
-/*·½·¨ÓëÑ°ÕÒº¯ÊıÀàËÆ£¬½¨Á¢Ò»¸öÍ·Ö¸ÕëÖ®ºó²»¶Ï±éÀúÃ¿¸ö½ÚµãÊä³öĞÅÏ¢*/
+/*æ–¹æ³•ä¸å¯»æ‰¾å‡½æ•°ç±»ä¼¼ï¼Œå»ºç«‹ä¸€ä¸ªå¤´æŒ‡é’ˆä¹‹åä¸æ–­éå†æ¯ä¸ªèŠ‚ç‚¹è¾“å‡ºä¿¡æ¯*/
 void linkedList::showStu(){
 	STU *showStu = head;
 
-	cout << "¿¼ºÅ    ĞÕÃû    ĞÔ±ğ    ÄêÁä      Àà±ğ" << endl;
+	cout << "è€ƒå·    å§“å    æ€§åˆ«    å¹´é¾„      ç±»åˆ«" << endl;
 	for (int iX = 0; iX < stuNum; iX++){
 		cout << showStu->stuTestNum << "       " << showStu->stuName << "    " << showStu->stuSex << "      "
 			<< showStu->stuAge << "        " << showStu->stuCategory << endl;
@@ -185,10 +185,10 @@ void linkedList::showStu(){
 void linkedList::staStu(){
 	string category;
 	int count = 0;
-	STU *staStu = head;		//Ê×ÏÈÍ³¼ÆÁË±¨¿¼¿¼ÉúµÄÈËÊı
-	cout << "Ò»¹²ÓĞ¿¼Éú£º" << stuNum << "ÈË" << endl;
-	cout << "ÇëÊäÈëÒªÍ³¼ÆµÄ±¨¿¼Àà±ğ£º";
-	cin >> category;			//Æä´ÎÍ³¼ÆÁË±¨¿¼Àà±ğµÄÈËÊı
+	STU *staStu = head;		//é¦–å…ˆç»Ÿè®¡äº†æŠ¥è€ƒè€ƒç”Ÿçš„äººæ•°
+	cout << "ä¸€å…±æœ‰è€ƒç”Ÿï¼š" << stuNum << "äºº" << endl;
+	cout << "è¯·è¾“å…¥è¦ç»Ÿè®¡çš„æŠ¥è€ƒç±»åˆ«ï¼š";
+	cin >> category;			//å…¶æ¬¡ç»Ÿè®¡äº†æŠ¥è€ƒç±»åˆ«çš„äººæ•°
 	for (int iX = 0; iX < stuNum; iX++){
 		if (staStu->stuCategory == category){
 			count++;
@@ -197,5 +197,6 @@ void linkedList::staStu(){
 		else
 			staStu = staStu->next;
 	}
-	cout << "±¨¿¼" << category << "µÄ¿¼Éú¹²ÓĞ" << count << "ÈË" << endl;
+	cout << "æŠ¥è€ƒ" << category << "çš„è€ƒç”Ÿå…±æœ‰" << count << "äºº" << endl;
 }
+

@@ -1,13 +1,13 @@
-//³ÌĞòLi3_10.cpp
-//×Ó¶ÔÏóµÄ³õÊ¼»¯
+//ç¨‹åºLi3_10.cpp
+//å­å¯¹è±¡çš„åˆå§‹åŒ–
 #include <iostream>
 using namespace std;
 class Part
 {
 public:
-    Part();      //PartµÄÎŞ²Î¹¹Ôìº¯Êı
-    Part(int x); // PartµÄÓĞ²Î¹¹Ôìº¯Êı
-    ~Part();     //PartµÄÎö¹¹º¯Êı
+    Part();      //Partçš„æ— å‚æ„é€ å‡½æ•°
+    Part(int x); // Partçš„æœ‰å‚æ„é€ å‡½æ•°
+    ~Part();     //Partçš„ææ„å‡½æ•°
 private:
     int val;
 };
@@ -30,12 +30,12 @@ Part::~Part()
 class Whole
 {
 public:
-    Whole(int i); // WholeµÄÓĞ²Î¹¹Ôìº¯Êı
-    Whole(){};    //WholeµÄÎŞ²Î¹¹Ôìº¯Êı
-    ~Whole();     //WholeµÄÎö¹¹º¯Êı
+    Whole(int i); // Wholeçš„æœ‰å‚æ„é€ å‡½æ•°
+    Whole(){};    //Wholeçš„æ— å‚æ„é€ å‡½æ•°
+    ~Whole();     //Wholeçš„ææ„å‡½æ•°
 private:
-    Part p2; //×Ó¶ÔÏó
-    Part p1; //×Ó¶ÔÏó
+    Part p2; //å­å¯¹è±¡
+    Part p1; //å­å¯¹è±¡
 };
 Whole::Whole(int i) : p2(), p1(5)
 {
@@ -47,6 +47,6 @@ Whole::~Whole()
 }
 int main()
 {
-    Whole w(3); //µ÷ÓÃÓĞ²Î¹¹Ôìº¯Êı
+    Whole w(3); //è°ƒç”¨æœ‰å‚æ„é€ å‡½æ•°
     return 0;
 }

@@ -4,23 +4,24 @@ void CdialogDlg::OnBnClickedButtonsubmit()
     CString major;
     UpdateData(TRUE);
 
-    msg = msg + "ĞÕÃû£º" + name;
-    msg = msg + "\nĞÔ±ğ£º" + (this->int_sex == 0 ? "ÄĞ" : "Å®");
+    msg = msg + "å§“åï¼š" + name;
+    msg = msg + "\næ€§åˆ«ï¼š" + (this->int_sex == 0 ? "ç”·" : "å¥³");
     this->cbx_major.GetWindowTextA(major);
-    msg += "\n×¨Òµ£º" + major;
-    msg += "\n°®ºÃ£º";
+    msg += "\nä¸“ä¸šï¼š" + major;
+    msg += "\nçˆ±å¥½ï¼š";
     CButton *pBtn = (CButton *)GetDlgItem(IDC_CHECK_basketball);
     if (pBtn->GetCheck())
-        msg += "ÀºÇò";
+        msg += "ç¯®çƒ";
     pBtn = (CButton *)GetDlgItem(IDC_CHECK_network);
     if (pBtn->GetCheck())
-        msg += "ÉÏÍø";
+        msg += "ä¸Šç½‘";
     pBtn = (CButton *)GetDlgItem(IDC_CHECK_tour);
     if (pBtn->GetCheck())
-        msg += "ÂÃÓÎ";
+        msg += "æ—…æ¸¸";
     pBtn = (CButton *)GetDlgItem(IDC_CHECK_game);
     if (pBtn->GetCheck())
-        msg += "ÓÎÏ·";
+        msg += "æ¸¸æˆ";
 
-    MessageBox(msg, "ĞÅÏ¢");
+    MessageBox(msg, "ä¿¡æ¯");
 }
+
