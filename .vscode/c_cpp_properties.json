@@ -4,14 +4,14 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "D:/Program/Mingw64/x86_64-w64-mingw32/include/**"
+                "C:/Program Files/Mingw64/x86_64-w64-mingw32/include/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "D:/Program/Mingw64/bin/gcc.exe",
+            "compilerPath": "C:/Program Files/Mingw64/bin/gcc.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "clang-x64"

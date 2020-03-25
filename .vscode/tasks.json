@@ -6,7 +6,7 @@
         {
             "type": "shell",
             "label": "gcc.exe build active file",
-            "command": "D:/Program/Mingw64/bin/gcc.exe",
+            "command": "C:/Program Files/Mingw64/bin/gcc.exe",
             "args": [
                 "-g",
                 "${file}",
