@@ -3,10 +3,10 @@ using namespace std;
  
 int main() {
     int n1, n2, hcf;
-    cout << "输入两个整数: ";
+    cout << "杈撳叆涓や釜鏁存暟: ";
     cin >> n1 >> n2;
  
-    // 如果 n2 大于 n1 交换两个变量
+    // 濡傛灉 n2 澶т簬 n1 浜ゆ崲涓や釜鍙橀噺
     if ( n2 > n1) {   
         int temp = n2;
         n2 = n1;

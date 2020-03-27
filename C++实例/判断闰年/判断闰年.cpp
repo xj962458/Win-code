@@ -5,24 +5,24 @@ int main()
 {
     int year;
  
-    cout << "ÊäÈëÄê·İ: ";
+    cout << "è¾“å…¥å¹´ä»½: ";
     cin >> year;
  
     if (year % 4 == 0)
     {
         if (year % 100 == 0)
         {
-            // // ÕâÀïÈç¹û±» 400 ÕûÊıÊÇÈòÄê
+            // // è¿™é‡Œå¦‚æœè¢« 400 æ•´æ•°æ˜¯é—°å¹´
             if (year % 400 == 0)
-                cout << year << " ÊÇÈòÄê";
+                cout << year << " æ˜¯é—°å¹´";
             else
-                cout << year << " ²»ÊÇÈòÄê";
+                cout << year << " ä¸æ˜¯é—°å¹´";
         }
         else
-            cout << year << " ÊÇÈòÄê";
+            cout << year << " æ˜¯é—°å¹´";
     }
     else
-        cout << year << " ²»ÊÇÈòÄê";
+        cout << year << " ä¸æ˜¯é—°å¹´";
  
     return 0;
 }

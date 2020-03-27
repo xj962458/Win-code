@@ -7,15 +7,16 @@ int main()
     
     int a = 5, b = 10;
  
-    cout << "½»»»Ö®Ç°£º" << endl;
+    cout << "äº¤æ¢ä¹‹å‰ï¼š" << endl;
     cout << "a = " << a << ", b = " << b << endl;
  
     a = a + b;
     b = a - b;
     a = a - b;
  
-    cout << "\n½»»»Ö®ºó£º" << endl;
+    cout << "\näº¤æ¢ä¹‹åï¼š" << endl;
     cout << "a = " << a << ", b = " << b << endl;
  
     return 0;
 }
+

@@ -6,7 +6,7 @@ int main()
     unsigned int n;
     unsigned long factorial = 1;
  
-    cout << "ÊäÈëÒ»¸öÕûÊý: ";
+    cout << "è¾“å…¥ä¸€ä¸ªæ•´æ•°: ";
     cin >> n;
  
     for(int i = 1; i <=n; ++i)
@@ -14,6 +14,6 @@ int main()
         factorial *= i;
     }
  
-    cout << n << " µÄ½×³ËÎª£º"<< " = " << factorial;    
+    cout << n << " çš„é˜¶ä¹˜ä¸ºï¼š"<< " = " << factorial;    
     return 0;
 }

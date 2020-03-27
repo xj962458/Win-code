@@ -6,20 +6,20 @@ int main()
     char c;
     int isLowercaseVowel, isUppercaseVowel;
  
-    cout << "ÊäÈëÒ»¸ö×ÖÄ¸: ";
+    cout << "è¾“å…¥ä¸€ä¸ªå­—æ¯: ";
     cin >> c;
  
-    // Ğ¡Ğ´×ÖÄ¸ÔªÒô
+    // å°å†™å­—æ¯å…ƒéŸ³
     isLowercaseVowel = (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
  
-    // ´óĞ´×ÖÄ¸ÔªÒô
+    // å¤§å†™å­—æ¯å…ƒéŸ³
     isUppercaseVowel = (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
  
-    // if Óï¾äÅĞ¶Ï
+    // if è¯­å¥åˆ¤æ–­
     if (isLowercaseVowel || isUppercaseVowel)
-        cout << c << " ÊÇÔªÒô";
+        cout << c << " æ˜¯å…ƒéŸ³";
     else
-        cout << c << " ÊÇ¸¨Òô";
+        cout << c << " æ˜¯è¾…éŸ³";
  
     return 0;
 }

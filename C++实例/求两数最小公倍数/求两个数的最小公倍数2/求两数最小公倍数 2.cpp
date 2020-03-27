@@ -5,7 +5,7 @@ int main()
 {
     int n1, n2, hcf, temp, lcm;
  
-    cout << "ÊäÈëÁ½¸öÊý: ";
+    cout << "è¾“å…¥ä¸¤ä¸ªæ•°: ";
     cin >> n1 >> n2;
  
     hcf = n1;
@@ -24,4 +24,5 @@ int main()
     cout << "LCM = " << lcm;
     return 0;
 }
+
 

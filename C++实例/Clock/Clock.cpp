@@ -13,5 +13,6 @@ void Clock::ShowTime()
 
 void Clock::ShowTime(int n)
 {
-    cout<<Hour<<"Ê±"<<Minute<<"·Ö"<<Second<<"Ãë"<<endl;
+    cout<<Hour<<"æ—¶"<<Minute<<"åˆ†"<<Second<<"ç§’"<<endl;
 }
+
