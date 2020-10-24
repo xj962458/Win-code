@@ -1,25 +1,43 @@
 #include<iostream>
-#include<math.h>
+#include<stdlib.h>
+#include<string>
+#define N 10
 using namespace std;
-int main()
+
+typedef struct student
 {
-    int d,e,n,i,j,k,l;
-    cin>>n;
-    d=(n+1)/2;
-    for(i=1;i<n;i++)
-    {
-        e=fabs(i-d);
-        for(j=0;j<e;j++)
-            cout<<" ";
-        for(k=0;k<d-e;k++)
-            cout<<d-e;
-        for(l=0;l<3-e;l++)
-            cout<<" ";
-        if((3-e)!=0)
-        {
-            for(j=0;j<e;j++)
-                cout<<" ";
-            cout<<endl;
-        }
+    string name;
+    int age;
+    float score;
+}STU;
+
+typedef struct link{
+    STU s[N];
+    int length;
+}Link;
+
+void Input(Link &a,int n){
+    for(int i=0;i<n;i++){
+    cout<<"请输入姓名"<<endl;
+    cin>>a.s[i].name;
+    cout<<"请输入年龄"<<endl;
+    cin>>a.s[i].age;
+    cout<<"请输入分数"<<endl;
+    cin>>a.s[i].score;
     }
+    a.length=n;
+}
+
+void Print(Link a){
+    cout<<"姓名\t\t年龄\t\t分数\n";
+    for(int i=0;i<a.length;i++){
+        cout<<a.s[i].name<<"\t\t"<<a.s[i].age<<"\t\t"<<a.s[i].score<<endl;
+    }
+}
+int main(){
+    Link a;
+    Input(a,3);
+    Print(a);
+    
+
 }
