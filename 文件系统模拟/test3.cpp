@@ -1,16 +1,14 @@
 #include <iostream>
 #include <cstring>
+#include <map>
 #include <windows.h>
-#define FILENAME_LENGTH 10 // 文件名称长度
-#define COMMAND_LENGTH 10  // 命令行长度
-#define PARA_LENGTH 30     // 参数长度
 using namespace std;
 typedef struct node
 {
-    char filename[FILENAME_LENGTH];
+    string filename;
     int isdir;
     int isopen;
-    char content[100000];
+    string content;
     node *parent, *child, *prev, *next;
 } fnode;
 
@@ -30,18 +28,16 @@ public:
 
 private:
     fnode *root, *recent, *temp, *ttemp;
-    char
-        para[PARA_LENGTH],
-        command[COMMAND_LENGTH], temppara[PARA_LENGTH], recentpara[PARA_LENGTH];
-    fnode *Initfile(const char filename[], int isdir);
-    int FindPara(char *topara);
+    string para, command, temppara, recentpara;
+    fnode *Initfile(string filename, int isdir);
+    int FindPara(string topara);
 };
 
 // 创建文件与目录结点
-fnode *Fnode::Initfile(const char filename[], int isdir)
+fnode *Fnode::Initfile(string filename, int isdir)
 {
     fnode *node = new fnode;
-    strcpy(node->filename, filename);
+    node->filename = filename;
     node->isdir = isdir;
     node->isopen = 0;
     node->parent = NULL;
@@ -51,28 +47,28 @@ fnode *Fnode::Initfile(const char filename[], int isdir)
     return node;
 }
 
-int Fnode::FindPara(char *topara)
+int Fnode::FindPara(string topara)
 {
     int i = 0;
     int sign = 1;
-    if (strcmp(topara, "/") == 0)
+    if (topara == "/")
     {
         recent = root;
-        strcpy(para, "/");
+        para = "/";
         return 1;
     }
     temp = recent;
-    strcpy(temppara, para);
+    temppara = para;
     if (topara[0] == '/')
     {
         recent = root->child;
         i++;
-        strcpy(para, "/");
+        para = "/";
     }
     else
     {
         if (recent != NULL && recent != root)
-            strcat(para, "/");
+            para += "/";
         if (recent && recent->child)
         {
             if (recent->isdir)
@@ -84,7 +80,7 @@ int Fnode::FindPara(char *topara)
             }
         }
     }
-    while (i <= signed(strlen(topara)) && recent)
+    while (i <= topara.length() && recent)
     {
         int j = 0;
         if (topara[i] == '/' && recent->child)
@@ -97,34 +93,33 @@ int Fnode::FindPara(char *topara)
                 cout << " 路径错误\n";
                 return 0;
             }
-            strcat(para, "/");
+            para += "/";
         }
-        while (topara[i] != '/' && i <= signed(strlen(topara)))
+        while (topara[i] != '/' && i <= topara.length())
         {
             recentpara[j] = topara[i];
             i++;
             j++;
         }
         recentpara[j] = '\0';
-        while ((strcmp(recent->filename, recentpara) != 0 || (recent->isdir != 1)) &&
-               recent->next != NULL)
+        while ((recent->filename != recentpara || (recent->isdir != 1)) && (recent->next != NULL))
         {
             recent = recent->next;
         }
-        if (strcmp(recent->filename, recentpara) == 0)
+        if (recent->filename == recentpara)
         {
             if (recent->isdir == 0)
             {
-                strcpy(para, temppara);
+                para = temppara;
                 recent = temp;
                 cout << " 是文件不是目录。\n";
                 return 0;
             }
-            strcat(para, recent->filename);
+            para += recent->filename;
         }
-        if (strcmp(recent->filename, recentpara) != 0 || recent == NULL)
+        if (recent->filename != recentpara || recent == NULL)
         {
-            strcpy(para, temppara);
+            para = temppara;
             recent = temp;
             cout << " 输入路径错误\n";
             return 0;
@@ -140,7 +135,7 @@ void Fnode::CreateRoot()
     root->parent = NULL;
     root->child = NULL;
     root->prev = root->next = NULL;
-    strcpy(para, "/");
+    para = "/";
 }
 
 // 创建目录
@@ -161,7 +156,7 @@ int Fnode::Mkdir()
         while (ttemp->next)
         {
             ttemp = ttemp->next;
-            if (strcmp(ttemp->filename, temp->filename) == 0 && ttemp->isdir == 1)
+            if (ttemp->filename == temp->filename && ttemp->isdir == 1)
             {
                 cout << " 对不起, 目录已存在!";
                 return 1;
@@ -196,7 +191,7 @@ int Fnode::Create()
         while (ttemp->next)
         {
             ttemp = ttemp->next;
-            if (strcmp(ttemp->filename, temp->filename) == 0 && ttemp->isdir == 0)
+            if (ttemp->filename == temp->filename && ttemp->isdir == 0)
             {
                 cout << " 对不起, 文件已存在!";
                 return 1;
@@ -253,14 +248,14 @@ int Fnode::Dir()
 // 读取文件内容
 int Fnode::Read()
 {
-    char filename[FILENAME_LENGTH];
+    string filename;
     cin >> filename;
     if (recent->child == NULL)
     {
         cout << " 文件不存在!" << endl;
         return 1;
     }
-    if (strcmp(recent->child->filename, filename) == 0)
+    if (recent->child->filename == filename)
     {
         cout << recent->child->content << endl;
         return 1;
@@ -270,7 +265,7 @@ int Fnode::Read()
         temp = recent->child;
         while (temp->next)
         {
-            if (strcmp(temp->next->filename, filename) == 0)
+            if (temp->next->filename == filename)
             {
                 cout << temp->next->content << endl;
                 return 1;
@@ -284,14 +279,14 @@ int Fnode::Read()
 // 向文件中写入内容
 int Fnode::Write()
 {
-    char filename[FILENAME_LENGTH];
+    string filename;
     cin >> filename;
     if (recent->child == NULL)
     {
         cout << " 文件不存在 !" << endl;
         return 1;
     }
-    if (strcmp(recent->child->filename, filename) == 0)
+    if (recent->child->filename == filename)
     {
         recent->child->isopen = 1; // 设置文件标记为打开
         cin >> recent->child->content;
@@ -304,7 +299,7 @@ int Fnode::Write()
         temp = recent->child;
         while (temp->next)
         {
-            if (strcmp(temp->next->filename, filename) == 0)
+            if (temp->next->filename == filename)
             {
                 recent->child->isopen = 1; // 设置文件标记为打开
                 cin >> temp->next->content;
@@ -321,9 +316,9 @@ int Fnode::Write()
 // 切换目录
 int Fnode::Cd()
 {
-    char topara[PARA_LENGTH];
+    string topara;
     cin >> topara;
-    if (strcmp(topara, "..") == 0)
+    if (topara == "..")
     {
         int i;
         while (recent->prev)
@@ -332,7 +327,7 @@ int Fnode::Cd()
         {
             recent = recent->parent;
         }
-        i = strlen(para);
+        i = para.length();
         while (para[i] != '/' && i > 0)
             i--;
         if (i != 0)
@@ -350,15 +345,15 @@ int Fnode::Cd()
 //删除结点
 int Fnode::Del()
 {
-    char filename[FILENAME_LENGTH];
+    string filename;
     cin >> filename;
     temp = new fnode;
     if (recent->child)
     {
         temp = recent->child;
-        while (temp->next && (strcmp(temp->filename, filename) != 0 || temp->isdir != 0))
+        while (temp->next && (temp->filename != filename || temp->isdir != 0))
             temp = temp->next;
-        if (strcmp(temp->filename, filename) != 0)
+        if (temp->filename != filename)
         {
             cout << " 不存在该文件！ " << endl;
             return 0;
@@ -387,28 +382,32 @@ int Fnode::Del()
     return 1;
 }
 
+// string Retuen(string str)
+// {
+//     return str + "()";
+// }
 // 运行函数
 int Fnode::Run()
 {
     cout << "root" << para << ">";
     cin >> command;
-    if (strcmp(command, "mkdir") == 0)
+    if (command == "mkdir")
         Mkdir();
-    else if (strcmp(command, "dir") == 0)
+    else if (command == "dir")
         Dir();
-    else if (strcmp(command, "cd") == 0)
+    else if (command == "cd")
         Cd();
-    else if (strcmp(command, "create") == 0)
+    else if (command == "create")
         Create();
-    else if (strcmp(command, "read") == 0)
+    else if (command == "read")
         Read();
-    else if (strcmp(command, "write") == 0)
+    else if (command == "write")
         Write();
-    else if (strcmp(command, "del") == 0)
+    else if (command == "del")
         Del();
-    else if (strcmp(command, "help") == 0)
+    else if (command == "help")
         Help();
-    else if (strcmp(command, "exit") == 0)
+    else if (command == "exit")
         return 0;
     else
         cout << " 请参考help 提供的命令列表!" << endl;
@@ -436,21 +435,22 @@ int main()
 {
     int i = 0;
     bool in = false;
-    char users[8], pwd[12];
+    string users, pwd;
     Fnode f;
     cout << "\t\t\t=====================文件系统模拟====================\n";
     cout << "\t\t\t*                                                   *\n";
     cout << "\t\t\t*         1>. 你只有三次机会来试验账号              *\n";
     cout << "\t\t\t*         2>. 键入help 可以获取帮助                 *\n";
     cout << "\t\t\t*                                    欢迎使用本系统!*\n";
-    cout << "\t\t\t=====================================================\n"<<endl;
+    cout << "\t\t\t=====================================================\n"
+         << endl;
     while (i < 3)
     {
         cout << "请输入用户名:";
         cin >> users;
         cout << "请输入密码:";
         cin >> pwd;
-        if ((strcmp("root", users) == 0) && (strcmp("root", pwd) == 0))
+        if ((users == "root") && (pwd == "root"))
         {
             in = true;
             break;
