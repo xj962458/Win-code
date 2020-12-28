@@ -3,7 +3,10 @@
         "stdio.h": "c",
         "stdlib.h": "c",
         "iostream": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "ostream": "cpp",
+        "*.tcc": "cpp",
+        "istream": "cpp"
     },
     "files.exclude": {
         "**/.classpath": true,

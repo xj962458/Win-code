@@ -1,40 +1,43 @@
 #include <iostream>
 #include <cstring>
 #include <windows.h>
+
 #define FILENAME_LENGTH 10 // 文件名称长度
 #define COMMAND_LENGTH 10  // 命令行长度
 #define PARA_LENGTH 30     // 参数长度
+
 using namespace std;
 typedef struct node
 {
-    char filename[FILENAME_LENGTH];
-    int isdir;
-    int isopen;
-    char content[100000];
+    char filename[FILENAME_LENGTH]; //文件名
+    int isdir;                      //标记是目录
+    int isopen;                     //标记文件是否是打开的
+    char content[100000];           //文件内容
     node *parent, *child, *prev, *next;
-} fnode;
+} fnode; //定义文件结点类型
 
+//定义文件模拟系统的类
 class Fnode
 {
 public:
-    void CreateRoot();
-    int Run();
-    int Mkdir();
-    int Create();
-    int Read();
-    int Write();
-    int Del();
-    int Cd();
-    int Dir();
-    void Help();
+    void CreateRoot(); //创建根节点
+    bool Run();        //根据输入的命令调用相关的函数
+    bool Mkdir();      //创建目录
+    bool Create();     //创建文件
+    bool Read();       //读取文件
+    bool Write();      //向已存在的文件中写入内容
+    bool Del();        //删除文件或目录
+    bool Cd();         //切换目录
+    bool Dir();        //显示文件和目录
+    void Help();       //帮助文件
 
 private:
     fnode *root, *recent, *temp, *ttemp;
     char
         para[PARA_LENGTH],
         command[COMMAND_LENGTH], temppara[PARA_LENGTH], recentpara[PARA_LENGTH];
-    fnode *Initfile(const char filename[], int isdir);
-    int FindPara(char *topara);
+    fnode *Initfile(const char filename[], int isdir); // 创建文件与目录结点
+    bool FindPara(char *topara);                       // 对参数进行处理
 };
 
 // 创建文件与目录结点
@@ -51,7 +54,8 @@ fnode *Fnode::Initfile(const char filename[], int isdir)
     return node;
 }
 
-int Fnode::FindPara(char *topara)
+// 对参数进行处理
+bool Fnode::FindPara(char *topara)
 {
     int i = 0;
     int sign = 1;
@@ -144,7 +148,7 @@ void Fnode::CreateRoot()
 }
 
 // 创建目录
-int Fnode::Mkdir()
+bool Fnode::Mkdir()
 {
     temp = Initfile(" ", 1);
     cin >> temp->filename;
@@ -154,6 +158,7 @@ int Fnode::Mkdir()
         temp->child = NULL;
         recent->child = temp;
         temp->prev = temp->next = NULL;
+        cout << "目录创建成功" << endl;
     }
     else
     {
@@ -177,7 +182,7 @@ int Fnode::Mkdir()
 }
 
 // 创建文件
-int Fnode::Create()
+bool Fnode::Create()
 {
     temp = Initfile(" ", 0);
     cin >> temp->filename;
@@ -213,7 +218,7 @@ int Fnode::Create()
 }
 
 //显示目录和文件
-int Fnode::Dir()
+bool Fnode::Dir()
 {
     int i = 0, j = 0;
     temp = new fnode;
@@ -251,7 +256,7 @@ int Fnode::Dir()
 }
 
 // 读取文件内容
-int Fnode::Read()
+bool Fnode::Read()
 {
     char filename[FILENAME_LENGTH];
     cin >> filename;
@@ -282,7 +287,7 @@ int Fnode::Read()
 }
 
 // 向文件中写入内容
-int Fnode::Write()
+bool Fnode::Write()
 {
     char filename[FILENAME_LENGTH];
     cin >> filename;
@@ -319,7 +324,7 @@ int Fnode::Write()
 }
 
 // 切换目录
-int Fnode::Cd()
+bool Fnode::Cd()
 {
     char topara[PARA_LENGTH];
     cin >> topara;
@@ -347,8 +352,8 @@ int Fnode::Cd()
     return 1;
 }
 
-//删除结点
-int Fnode::Del()
+//删除文件或目录
+bool Fnode::Del()
 {
     char filename[FILENAME_LENGTH];
     cin >> filename;
@@ -387,8 +392,8 @@ int Fnode::Del()
     return 1;
 }
 
-// 运行函数
-int Fnode::Run()
+//根据输入的命令调用相关的函数
+bool Fnode::Run()
 {
     cout << "root" << para << ">";
     cin >> command;
@@ -436,14 +441,15 @@ int main()
 {
     int i = 0;
     bool in = false;
-    char users[8], pwd[12];
+    string users[8], pwd[12];
     Fnode f;
     cout << "\t\t\t=====================文件系统模拟====================\n";
     cout << "\t\t\t*                                                   *\n";
     cout << "\t\t\t*         1>. 你只有三次机会来试验账号              *\n";
     cout << "\t\t\t*         2>. 键入help 可以获取帮助                 *\n";
     cout << "\t\t\t*                                    欢迎使用本系统!*\n";
-    cout << "\t\t\t=====================================================\n"<<endl;
+    cout << "\t\t\t=====================================================\n"
+         << endl;
     while (i < 3)
     {
         cout << "请输入用户名:";
@@ -454,6 +460,10 @@ int main()
         {
             in = true;
             break;
+        }
+        else
+        {
+            cout << "账号或密码不正确,请重新输入!" << endl;
         }
         i++;
     }

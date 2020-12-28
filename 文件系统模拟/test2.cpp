@@ -8,28 +8,28 @@ typedef struct node
     int isdir;
     int isopen;
     string content;
-    node *parent, *child, *prev, *next;
+    struct node *parent, *child, *prev, *next;
 } fnode;
 
 class Fnode
 {
 public:
     void CreateRoot();
-    int Run();
-    int Mkdir();
-    int Create();
-    int Read();
-    int Write();
-    int Del();
-    int Cd();
-    int Dir();
+    bool Run();
+    bool Mkdir();
+    bool Create();
+    bool Read();
+    bool Write();
+    bool Del();
+    bool Cd();
+    bool Dir();
     void Help();
 
 private:
     fnode *root, *recent, *temp, *ttemp;
     string para, command, temppara, recentpara;
     fnode *Initfile(string filename, int isdir);
-    int FindPara(string topara);
+    bool FindPara(string topara);
 };
 
 // 创建文件与目录结点
@@ -46,7 +46,7 @@ fnode *Fnode::Initfile(string filename, int isdir)
     return node;
 }
 
-int Fnode::FindPara(string topara)
+bool Fnode::FindPara(string topara)
 {
     int i = 0;
     int sign = 1;
@@ -79,7 +79,7 @@ int Fnode::FindPara(string topara)
             }
         }
     }
-    while (i <= topara.length() && recent)
+    while (i <= signed(topara.length()) && recent)
     {
         int j = 0;
         if (topara[i] == '/' && recent->child)
@@ -94,7 +94,7 @@ int Fnode::FindPara(string topara)
             }
             para += "/";
         }
-        while (topara[i] != '/' && i <= topara.length())
+        while (topara[i] != '/' && i <= signed(topara.length()))
         {
             recentpara[j] = topara[i];
             i++;
@@ -116,7 +116,7 @@ int Fnode::FindPara(string topara)
             }
             para += recent->filename;
         }
-        if (recent->filename != recentpara || recent == NULL)
+        if (recent->filename!= recentpara || recent == NULL)
         {
             para = temppara;
             recent = temp;
@@ -138,7 +138,7 @@ void Fnode::CreateRoot()
 }
 
 // 创建目录
-int Fnode::Mkdir()
+bool Fnode::Mkdir()
 {
     temp = Initfile(" ", 1);
     cin >> temp->filename;
@@ -148,6 +148,7 @@ int Fnode::Mkdir()
         temp->child = NULL;
         recent->child = temp;
         temp->prev = temp->next = NULL;
+        cout << "目录创建成功"<<endl;
     }
     else
     {
@@ -171,7 +172,7 @@ int Fnode::Mkdir()
 }
 
 // 创建文件
-int Fnode::Create()
+bool Fnode::Create()
 {
     temp = Initfile(" ", 0);
     cin >> temp->filename;
@@ -207,7 +208,7 @@ int Fnode::Create()
 }
 
 //显示目录和文件
-int Fnode::Dir()
+bool Fnode::Dir()
 {
     int i = 0, j = 0;
     temp = new fnode;
@@ -245,7 +246,7 @@ int Fnode::Dir()
 }
 
 // 读取文件内容
-int Fnode::Read()
+bool Fnode::Read()
 {
     string filename;
     cin >> filename;
@@ -276,7 +277,7 @@ int Fnode::Read()
 }
 
 // 向文件中写入内容
-int Fnode::Write()
+bool Fnode::Write()
 {
     string filename;
     cin >> filename;
@@ -313,7 +314,7 @@ int Fnode::Write()
 }
 
 // 切换目录
-int Fnode::Cd()
+bool Fnode::Cd()
 {
     string topara;
     cin >> topara;
@@ -342,7 +343,7 @@ int Fnode::Cd()
 }
 
 //删除结点
-int Fnode::Del()
+bool Fnode::Del()
 {
     string filename;
     cin >> filename;
@@ -382,7 +383,7 @@ int Fnode::Del()
 }
 
 // 运行函数
-int Fnode::Run()
+bool Fnode::Run()
 {
     cout << "root" << para << ">";
     cin >> command;
@@ -449,6 +450,10 @@ int main()
         {
             in = true;
             break;
+        }
+        else
+        {
+            cout << "账号或密码不正确,请重新输入!" << endl;
         }
         i++;
     }
