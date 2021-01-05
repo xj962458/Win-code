@@ -252,6 +252,7 @@ int cd()
     }
     return 1;
 }
+
 int findpara(char *topara)
 {
     int i = 0;

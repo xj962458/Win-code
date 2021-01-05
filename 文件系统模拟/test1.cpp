@@ -4,7 +4,7 @@
 
 #define FILENAME_LENGTH 10 // 文件名称长度
 #define COMMAND_LENGTH 10  // 命令行长度
-#define PARA_LENGTH 30     // 参数长度
+#define PARA_LENGTH 30     // 参数长度c
 
 using namespace std;
 typedef struct node
