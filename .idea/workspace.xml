@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87f16dea-d44c-4cb1-8e81-4a1935260387" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/.vscode/c_cpp_properties.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/c_cpp_properties.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/文件系统模拟/test1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/文件系统模拟/test1.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="87f16dea-d44c-4cb1-8e81-4a1935260387" name="默认的" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +21,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
       <changelist id="87f16dea-d44c-4cb1-8e81-4a1935260387" name="默认的" comment="" />
@@ -32,7 +30,11 @@
       <option name="presentableId" value="Default" />
       <updated>1609667045122</updated>
       <workItem from="1609667047648" duration="4000" />
+      <workItem from="1610022895045" duration="18000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
